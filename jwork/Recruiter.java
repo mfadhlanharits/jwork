@@ -1,9 +1,6 @@
 
 /**
- * Write a description of class Recruiter here.
- *
- * @author (your name)
- * @version (a version number or a date)
+Kelas ini merupakan gambaran umum untuk objek recruiter
  */
 public class Recruiter
 {
@@ -14,37 +11,60 @@ public class Recruiter
     private String phoneNumber;
 
     /**
-     * Constructor for objects of class Recruiter
+     Konstruktur untuk recruiter
      */
     public Recruiter()
     {
     }
-
+     /**
+     Method untuk mengambil nilai ID
+     */
     public int getID()
     {
         return 0;
     }
+     /**
+     Method untuk mengambil nama
+     */
     public String getName()
     {
         return "oop";
     }
+    /**
+     Method untuk mengambil email
+     */
     public String getEmail()
     {
         return "oop";
     }
+    /**
+     Method untuk mengambil nomor telepon
+     */
     public String getPhoneNumber()
     {
         return "oop";
     }
+    /**
+     Method untuk memberikan nilai ID
+     */
     public void setId(int id)
     {
     }
+    /**
+     Method untuk memberikan nilai email
+     */
     public void setEmail(String email)
     {
     }
+    /**
+     Method untuk memberikan nilai nama
+     */
     public void setName(String name)
     {
     }
+    /**
+     Method untuk memberikan nilai nomor telepon
+     */
     public void setPhoneNumber(String phoneNumber)
     {
     }
