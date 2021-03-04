@@ -4,7 +4,7 @@ Kelas ini akan digunakan untuk mengatur gaji atau fee
  */
 public class Invoice
 {
-    // instance variables - replace the example below with your own
+    // variabel yang digunakan
     private int id;
     private int idJob;
     private String date;

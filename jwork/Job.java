@@ -4,7 +4,7 @@ Kelas ini akan digunakan untuk mendeskripsikan pekerjaan
  */
 public class Job
 {
-    // instance variables - replace the example below with your own
+    //variabel yang digunakan
     private int id;
     private String name;
     private int fee;

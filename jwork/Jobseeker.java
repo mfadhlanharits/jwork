@@ -4,7 +4,7 @@
  */
 public class Jobseeker
 {
-    // instance variables - replace the example below with your own
+    //variabel yang digunakan
     private int id;
     private String name;
     private String email;
