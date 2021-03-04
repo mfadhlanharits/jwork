@@ -42,7 +42,7 @@ public class Invoice
     public void setDate(String date)
     {
     }
-    public void setTotalFee(String totalFee)
+    public void setTotalFee(int totalFee)
     {
     }
 }
