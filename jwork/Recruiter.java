@@ -1,6 +1,7 @@
 
 /**
-Kelas ini merupakan gambaran umum untuk objek recruiter
+ * @author Muhammad Fadhlan Harits
+ * @version 18 Maret 2021
  */
 public class Recruiter
 {
@@ -9,63 +10,95 @@ public class Recruiter
     private String name;
     private String email;
     private String phoneNumber;
+    private Location location;
 
-    /**
-     Konstruktur untuk recruiter
+   /**
+    * <p>Konstruktur recruiter</p>
+    * @param id, name, email, phoneNumber, location
      */
-    public Recruiter()
+    public Recruiter(int id, String name, String email, String phoneNumber, Location location)
     {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.location = location;
     }
      /**
-     Method untuk mengambil nilai ID
+     * <p>Method ini akan mengambil ID recruiter sehingga returnnya id</p>
+     * @return id
      */
     public int getID()
     {
-        return 0;
+        return id;
     }
      /**
-     Method untuk mengambil nama
+     * <p>Method ini akan mengambil nama recruiter sehingga returnnya name</p>
+     * @return name
      */
     public String getName()
     {
-        return "oop";
+        return name;
     }
-    /**
-     Method untuk mengambil email
+     /**
+     * <p>Method ini akan mengambil email recruiter sehingga returnnya email</p>
+     * @return email
      */
     public String getEmail()
     {
-        return "oop";
+        return email;
     }
-    /**
-     Method untuk mengambil nomor telepon
+     /**
+     * <p>Method ini akan mengambil nomor telepon recruiter sehingga returnnya phoneNumber</p>
+     * @return phoneNumber
      */
     public String getPhoneNumber()
     {
-        return "oop";
+        return phoneNumber;
     }
     /**
-     Method untuk memberikan nilai ID
+     * <p>Method ini akan memberi nilai id recruiter sehingga parameternya id</p>
+     * @param id
      */
     public void setId(int id)
     {
+        this.id=id;
     }
-    /**
-     Method untuk memberikan nilai email
+   /**
+     * <p>Method ini akan memberi nilai email recruiter sehingga parameternya email</p>
+     * @param email
      */
     public void setEmail(String email)
     {
+        this.email=email;
     }
     /**
-     Method untuk memberikan nilai nama
+     * <p>Method ini akan memberi nilai nama recruiter sehingga parameternya name</p>
+     * @param name
      */
     public void setName(String name)
     {
+        this.name=name;
     }
     /**
-     Method untuk memberikan nilai nomor telepon
+     * <p>Method ini akan memberi nilai nomor telepon recruiter sehingga parameternya phonenumber</p>
+     * @param phonenumber
      */
     public void setPhoneNumber(String phoneNumber)
     {
+        this.phoneNumber=phoneNumber;
+    }
+    /**
+     * <p>Method ini akan memberi nilai lokasi recruiter sehingga parameternya location</p>
+     * @param location
+     */
+    public void setLocation(Location location)
+    {
+        this.location=location;
+    }
+    //Method ini akan menampilkan nama recruiter
+    public void printData()
+    {
+        System.out.println("Nama recruiter : " + getName());
     }
 }

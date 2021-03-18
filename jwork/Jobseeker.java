@@ -1,6 +1,7 @@
 
 /**
- Kelas ini merupakan gambaran umum untuk object jobseeker
+ * @author Muhammad Fadhlan Harits
+ * @version 18 Maret 2021
  */
 public class Jobseeker
 {
@@ -12,74 +13,100 @@ public class Jobseeker
     private String joinDate;
     
     /**
-    method ini merupakan constructur
+    * <p>Konstruktur jobseeker</p>
+    * @param id, name, email, password, joinDate
      */
-    public Jobseeker()
+    public Jobseeker(int id, String name, String email, String password, String joinDate)
     {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.joinDate = joinDate;
     }
     /**
-    Method ini akan mengambil ID jobseeker
+     * <p>Method ini akan mengambil ID jobseeker sehingga returnnya id</p>
+     * @return id
      */
     public int getID()
     {
-        return 0;
+        return id;
     }
     /**
-    Method ini akan mengambil nama jobseeker
+     * <p>Method ini akan mengambil nama jobseeker sehingga returnnya nama</p>
+     * @return name
      */
     public String getName()
     {
-        return "oop";
+        return name;
     }
     /**
-    Method ini akan mengambil email jobseeker
+     * <p>Method ini akan mengambil email jobseeker sehingga returnnya email</p>
+     * @return email
      */
     public String getEmail()
     {
-        return "oop";
+        return email;
     }
     /**
-    Method ini akan mengambil password jobseeker
+     * <p>Method ini akan mengambil password jobseeker sehingga returnnya password</p>
+     * @return password
      */
     public String getPassword()
     {
-        return "oop";
+        return password;
     }
     /**
-    Method ini akan mengambil tanggal pelamar kerja bergabung
+     * <p>Method ini akan mengambil tanggal jobseeker bergabung sehingga returnnya joindate</p>
+     * @return joinDate
      */
-    public String getJoindDate()
+    public String getJoinDate()
     {
-        return "oop";
+        return joinDate;
     }
     /**
-    Method ini akan memberikan nilai untuk id pelamar kerja
+     * <p>Method ini akan memberi nilai ID jobseeker sehingga parameternya id</p>
+     * @param id
      */
     public void setId(int id)
     {
+        this.id=id;
     }
     /**
-    Method ini akan memberikan nilai untuk nama pelamar kerja
+     * <p>Method ini akan memberi nilai nama jobseeker sehingga parameternya nama</p>
+     * @param name
      */
     public void setName(String name)
     {
+        this.name=name;
     }
     /**
-    Method ini akan memberikan nilai untuk email pelamar kerja
+     * <p>Method ini akan memberi nilai email jobseeker sehingga parameternya email</p>
+     * @param email
      */
     public void setEmail(String email)
     {
+        this.email=email;
     }
     /**
-    Method ini akan memberikan nilai untuk password pelamar kerja
+     * <p>Method ini akan memberi nilai password jobseeker sehingga parameternya nama</p>
+     * @param password
      */
     public void setPassword(String password)
     {
+        this.password=password;
     }
     /**
-    Method ini akan memberikan nilai untuk tanggal pelamar kerja bergabung
+     * <p>Method ini akan memberi nilai tanggal jobseeker bergabung sehingga parameternya joindate</p>
+     * @param joinDate
      */
     public void setJoinDate(String joinDate)
     {
+        this.joinDate=joinDate;
+    }
+    //Method ini akan menampilkan nama pelamar
+    public void printData()
+    {
+        System.out.println("Nama pelamar : " + getName());
     }
 }

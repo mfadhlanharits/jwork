@@ -1,70 +1,109 @@
 
 /**
-Kelas ini akan digunakan untuk mendeskripsikan pekerjaan
+ * @author Muhammad Fadhlan Harits
+ * @version 18 Maret 2021
  */
 public class Job
 {
     //variabel yang digunakan
     private int id;
     private String name;
+    private Recruiter recruiter;
     private int fee;
     private String category;
     /**
-    Konstruktur untuk kelas job
+    *<p>Konstruktur invoice</p>
+    *@param id, name, recruiter, fee, category
      */
-    public Job()
+    public Job(int id, String name, Recruiter recruiter, int fee, String category)
     {
+        this.id = id;
+        this.name = name;
+        this.recruiter = recruiter;
+        this.fee = fee;
+        this.category = category;
     }
     /**
-    Method untuk menentukan ID
+    *<p>Method untuk menentukan ID</p>
+    *@return id
      */
     public int getId()
     {
-        return 0;
+        return id;
     }
-    /**
-    Method untuk menentukan nama
+     /**
+    *<p>Method untuk menentukan nama</p>
+    *@return name
      */
     public String getName()
     {
-        return "oop";
+        return name;
     }
-    /**
-    Method untuk menentukan bayaran
+     /**
+    *<p>Method untuk menentukan bayaran</p>
+    *@return fee
      */
     public int getFee()
     {
-        return 0;
+        return fee;
     }
-    /**
-    Method untuk menentukan kategori
+     /**
+    *<p>Method untuk menentukan nama</p>
+    *@return category
      */
     public String getCategory()
     {
-        return "oop";
+        return category;
+    }
+     /**
+    *<p>Method untuk mengembalikan recruiter</p>
+    *@return recruiter
+     */
+    public Recruiter getRecruiter()
+    {
+        return recruiter;
     }
     /**
-    Method untuk memberikan nilai pada ID
+    *<p>Method untuk memberikan nilai pada ID</p>
+    *@param id
      */
     public void setId(int id)
     {
+        this.id = id;
     }
-     /**
-    Method untuk memberikan nilai pada nama
+    /**
+    *<p>Method untuk memberikan nilai pada nama</p>
+    *@param name
      */
     public void setName(String name)
     {
+        this.name = name;
     }
-     /**
-    Method untuk memberikan nilai pada Fee
+    /**
+    *<p>Method untuk memberikan nilai pada recruiter</p>
+    *@param recruiter
+     */
+    public void setRecruiter(Recruiter recruiter)
+    {
+        this.recruiter = recruiter;
+    }
+    /**
+    *<p>Method untuk memberikan nilai pada bayaran</p>
+    *@param fee
      */
     public void setFee(int fee)
     {
+        this.fee = fee;
     }
     /**
-    Method untuk memberikan nilai pada kategori
+    *<p>Method untuk memberikan nilai pada kategori</p>
+    *@param category
      */
     public void setCategory(String category)
+    {
+        this.category = category;
+    }
+    public void printData()
     {
     }
 }
