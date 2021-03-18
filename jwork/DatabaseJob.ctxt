@@ -1,16 +1,19 @@
 #BlueJ class context
 comment0.target=DatabaseJob
-comment0.text=\n\ Write\ a\ description\ of\ class\ DatabaseJob\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ @author\ Muhammad\ Fadhlan\ Harits\n\ @version\ 18\ Maret\ 2021\n
 comment1.params=
 comment1.target=DatabaseJob()
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ DatabaseJob\n
+comment1.text=\n\ \ \ \ Konstruktur\ untuk\ kelas\ DatabaseJob\n
 comment2.params=job
 comment2.target=boolean\ addJob(Job)
-comment2.text=\n\ \ \ \ \ \n
+comment2.text=\n\ Akan\ menambah\ profesi\ sehingga\ parameternya\ job\n\ @param\ job\n
 comment3.params=job
 comment3.target=boolean\ removeJob(Job)
+comment3.text=\n\ Akan\ menghapus\ profesi\ sehingga\ parameternya\ job\n\ @param\ job\n
 comment4.params=
 comment4.target=Job\ getJob()
+comment4.text=\n\ Akan\ mengembalikan\ profesi\ sehingga\ returnnya\ null\n\ @return\ null\n
 comment5.params=
 comment5.target=java.lang.String[]\ getListJob()
+comment5.text=\n\ Akan\ mengembalikan\ daftar\ profesi\ sehingga\ returnnya\ null\n\ @return\ null\n
 numComments=6
