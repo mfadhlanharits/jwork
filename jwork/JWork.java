@@ -19,7 +19,9 @@ public class JWork
          Invoice in = new Invoice(23, 20, "24-02-2021", 45000, js1);
          
          r1.printData();
-         //r1.setName("FM");
+         r1.setName("FM");
          r1.printData();
+         j1.printData();
+         
     }
 }
