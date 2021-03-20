@@ -105,5 +105,6 @@ public class Job
     }
     public void printData()
     {
+        System.out.println("Nama pekerjaan : " + getName());
     }
 }
