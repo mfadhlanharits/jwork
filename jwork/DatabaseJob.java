@@ -1,24 +1,17 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 18 Maret 2021
+ * @version 25 Maret 2021
  */
 public class DatabaseJob
 {
     // variabel yang digunakan
-    private String[] listJob;
-    /*
-    Konstruktur untuk kelas DatabaseJob
-     */
-    public DatabaseJob()
-    {
-        
-    }
+    private static String[] listJob;
     /**
      * Akan menambah profesi sehingga parameternya job
      * @param job
      */
-    public boolean addJob(Job job)
+    public static boolean addJob(Job job)
     {
         return false;
     }
@@ -26,7 +19,7 @@ public class DatabaseJob
      * Akan menghapus profesi sehingga parameternya job
      * @param job
      */
-    public boolean removeJob(Job job)
+    public static boolean removeJob(Job job)
     {
         return false;
     }
@@ -34,7 +27,7 @@ public class DatabaseJob
      * Akan mengembalikan profesi sehingga returnnya null
      * @return null
      */
-    public Job getJob()
+    public static Job getJob()
     {
         return null;
     }
@@ -42,7 +35,7 @@ public class DatabaseJob
      * Akan mengembalikan daftar profesi sehingga returnnya null
      * @return null
      */
-    public String[] getListJob()
+    public static String[] getListJob()
     {
         return null;
     }

@@ -1,26 +1,18 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 20 Maret 2021
+ * @version 25 Maret 2021
  */
 public class DatabaseRecruiter
 {
     // variabel yang digunakan
-    private String[] listRecruiter;
-
-    /**
-     * Constructur kelas
-     */
-    public DatabaseRecruiter()
-    {
-
-    }
+    private static String[] listRecruiter;
 
     /**
      * akan menambahkan recruiter sehingga parameternya recruiter
      * @param  recruiter
      */
-    public boolean addRecruiter(Recruiter recruiter)
+    public static boolean addRecruiter(Recruiter recruiter)
     {
         return false;
     }
@@ -28,7 +20,7 @@ public class DatabaseRecruiter
      * akan menghapus recruiter sehingga parameternya recruiter
      * @param  recruiter
      */
-    public boolean removeRecruiter(Recruiter recruiter)
+    public static boolean removeRecruiter(Recruiter recruiter)
     {
         return false;
     }
@@ -36,7 +28,7 @@ public class DatabaseRecruiter
      * akan mengembalikan recruiter
      * @return null
      */
-    public Recruiter getRecruiter()
+    public static Recruiter getRecruiter()
     {
         return null;
     }
@@ -44,7 +36,7 @@ public class DatabaseRecruiter
      * akan mengembalikan daftar recruiter
      * @return null
      */
-    public String[] getListRecruiter()
+    public static String[] getListRecruiter()
     {
         return null;
     }

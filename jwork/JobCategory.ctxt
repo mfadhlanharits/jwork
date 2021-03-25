@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=JobCategory
+comment0.text=\n\ @author\ Muhammad\ Fadhlan\ Harits\n\ @version\ 25\ Maret\ 2021\n
+comment1.params=NAME
+comment1.target=JobCategory(java.lang.String)
+comment1.text=\n\ Konstruktur\ untuk\ enum\ JobCategory\n\ @param\ NAME\n
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment2.text=\n\ Method\ untuk\ mengembalikan\ enum\ dalam\ bentuk\ string\n\ @return\ NAME\n
+numComments=3

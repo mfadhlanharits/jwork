@@ -1,7 +1,7 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 18 Maret 2021
+ * @version 25 Maret 2021
  */
 public class Recruiter
 {
@@ -56,6 +56,14 @@ public class Recruiter
     {
         return phoneNumber;
     }
+     /**
+     * <p>Method ini akan mengambil lokasi recruiter sehingga returnnya location</p>
+     * @return location
+     */
+    public Location getLocation()
+    {
+        return location;
+    }
     /**
      * <p>Method ini akan memberi nilai id recruiter sehingga parameternya id</p>
      * @param id
@@ -99,6 +107,6 @@ public class Recruiter
     //Method ini akan menampilkan nama recruiter
     public void printData()
     {
-        System.out.println("Nama recruiter : " + getName());
+        System.out.println("Name: " + getName());
     }
 }

@@ -1,7 +1,7 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 18 Maret 2021
+ * @version 25 Maret 2021
  */
 public class Job
 {
@@ -10,12 +10,12 @@ public class Job
     private String name;
     private Recruiter recruiter;
     private int fee;
-    private String category;
+    private JobCategory category;
     /**
     *<p>Konstruktur invoice</p>
     *@param id, name, recruiter, fee, category
      */
-    public Job(int id, String name, Recruiter recruiter, int fee, String category)
+    public Job(int id, String name, Recruiter recruiter, int fee, JobCategory category)
     {
         this.id = id;
         this.name = name;
@@ -51,7 +51,7 @@ public class Job
     *<p>Method untuk menentukan nama</p>
     *@return category
      */
-    public String getCategory()
+    public JobCategory getCategory()
     {
         return category;
     }
@@ -99,12 +99,18 @@ public class Job
     *<p>Method untuk memberikan nilai pada kategori</p>
     *@param category
      */
-    public void setCategory(String category)
+    public void setCategory(JobCategory category)
     {
         this.category = category;
     }
     public void printData()
     {
-        System.out.println("Nama pekerjaan : " + getName());
+        System.out.println("======= JOB ======= ");
+        System.out.println("ID: " + getId());
+        System.out.println("Name: " +getName());
+        System.out.println("Recruiter: " + getRecruiter().getName());
+        System.out.println("City: " + getRecruiter().getLocation().getCity());
+        System.out.println("Fee: " +getFee());
+        System.out.println("Category: " +getCategory());
     }
 }
