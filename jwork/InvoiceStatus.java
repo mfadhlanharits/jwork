@@ -1,7 +1,7 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version (version number or date here)
+ * @version 27 Maret 2021
  */
 public enum InvoiceStatus
 {
