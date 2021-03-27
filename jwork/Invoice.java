@@ -1,7 +1,7 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 18 Maret 2021
+ * @version 27 Maret 2021
  */
 public class Invoice
 {
@@ -11,17 +11,21 @@ public class Invoice
     private String date;
     private int totalFee;
     private Jobseeker jobseeker;
+    private PaymentType paymentType;
+    private InvoiceStatus status;
     /**
     * <p>Konstruktur invoice</p>
     * @param id, idJob, date, totalFee, jobseeker
      */
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker)
+    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status)
     {
         this.id = id;
         this.idJob = idJob;
         this.date = date;
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
+        this.paymentType = paymentType;
+        this.status = status;
     }
     /**
     * <p>Method mengambil id invoice sehingga memiliki return id</p>
@@ -63,6 +67,22 @@ public class Invoice
     {
         return jobseeker;
     }
+    /**
+    * <p>Method mengembalikan tipe pembayaran</p>
+    * @return paymentType
+     */
+     public PaymentType getPaymentType()
+    {
+        return paymentType;
+    }
+    /**
+    * <p>Method mengembalikan status invoice</p>
+    * @return status
+     */
+    public InvoiceStatus getInvoiceStatus()
+    {
+        return status;
+    }
      /**
     * <p>Method memberikan nilai pada id</p>
     * @param id
@@ -103,8 +123,30 @@ public class Invoice
     {
         this.jobseeker = jobseeker;
     }
+    /**
+    * <p>Method memberikan nilai pada tipe pembayaran</p>
+    * @param paymentType
+     */
+     public void setPaymentType(PaymentType paymentType)
+    {
+        this.paymentType = paymentType;
+    }
+    /**
+    * <p>Method memberikan nilai pada  status invoice</p>
+    * @param status
+     */
+    public void setInvoiceStatus(InvoiceStatus status)
+    {
+        this.status = status;
+    }
     public void printData()
     {
-        System.out.println("Total biaya : " + getTotalFee());
+        System.out.println("====== INVOICE ======");
+        System.out.println("ID: " + getId());
+        System.out.println("ID Job: " + getIdJob());
+        System.out.println("Date : " + getDate());
+        System.out.println("Seeker: " + getJobseeker().getName());
+        System.out.println("Fee: " + getTotalFee());
+        System.out.println("Status: " + getInvoiceStatus());
     }
 }
