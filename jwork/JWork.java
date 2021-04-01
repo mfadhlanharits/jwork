@@ -1,7 +1,7 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 25 Maret 2021
+ * @version 1 April 2021
  */
 public class JWork
 {
@@ -16,9 +16,22 @@ public class JWork
         
         Jobseeker js1 = new Jobseeker(20, "Harits", "harits@hotmail.com", "haritspass123", "27/03/2021");
         
-        Invoice iv1 = new Invoice(30, j1.getId(), "27/03/2021", j1.getFee(), js1, PaymentType.BankPayment, InvoiceStatus.OnGoing);
-         
-        iv1.printData();
+        Bonus bn1 = new Bonus(35, "a123", 234, 33, true);
         
+        EwalletPayment ep1 = new EwalletPayment(35, j1, "01-04-2021", js1, InvoiceStatus.OnGoing);
+        
+        EwalletPayment ep2 = new EwalletPayment(70, j1, "01-04-2021", js1, bn1, InvoiceStatus.OnGoing);
+        
+        EwalletPayment ep3 = new EwalletPayment(100, j1, "01-04-2021", js1, bn1, InvoiceStatus.OnGoing);
+        
+        ep2.totalFee = 12;
+        
+        ep3.totalFee = 400;
+        
+        ep1.printData();
+        
+        ep2.printData();
+        
+        ep3.printData();
     }
 }

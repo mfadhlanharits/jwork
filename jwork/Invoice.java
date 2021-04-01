@@ -1,31 +1,28 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 27 Maret 2021
+ * @version 1 April 2021
  */
-public class Invoice
+public abstract class Invoice
 {
     // variabel yang digunakan
     private int id;
-    private int idJob;
+    private Job job;
     private String date;
-    private int totalFee;
+    protected int totalFee;
     private Jobseeker jobseeker;
-    private PaymentType paymentType;
-    private InvoiceStatus status;
+    private InvoiceStatus invoiceStatus;
     /**
     * <p>Konstruktur invoice</p>
-    * @param id, idJob, date, totalFee, jobseeker
+    * @param id, idJob, date, totalFee, jobseeker, paymentType, status
      */
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status)
+    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
         this.id = id;
-        this.idJob = idJob;
+        this.job = job;
         this.date = date;
-        this.totalFee = totalFee;
         this.jobseeker = jobseeker;
-        this.paymentType = paymentType;
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
     /**
     * <p>Method mengambil id invoice sehingga memiliki return id</p>
@@ -36,12 +33,12 @@ public class Invoice
         return id;
     }
     /**
-    * <p>Method mengambil id pekerjaan dari kelas pekerjaan sehingga returnnya adalah idJob</p>
+    * <p>Method mengambil referralcode sehingga returnnya adalah referralcode</p>
     * @return idJob
      */
-    public int getIdJob()
+    public Job getJob()
     {
-        return idJob;
+        return job;
     }
     /**
     * <p>Method menentukan tanggal</p>
@@ -71,17 +68,14 @@ public class Invoice
     * <p>Method mengembalikan tipe pembayaran</p>
     * @return paymentType
      */
-     public PaymentType getPaymentType()
-    {
-        return paymentType;
-    }
+     public abstract PaymentType getPaymentType();
     /**
     * <p>Method mengembalikan status invoice</p>
     * @return status
      */
     public InvoiceStatus getInvoiceStatus()
     {
-        return status;
+        return invoiceStatus;
     }
      /**
     * <p>Method memberikan nilai pada id</p>
@@ -92,12 +86,12 @@ public class Invoice
         this.id = id;
     }
      /**
-    * <p>Method memberikan nilai pada id pekerjaan</p>
-    * @param idJob
+    * <p>Method memberikan nilai pada pekerjaan</p>
+    * @param Job
      */
-     public void setIdJob(int idJob)
+     public void setJob(Job job)
     {
-        this.idJob = idJob;
+        this.job = job;
     }
      /**
     * <p>Method memberikan nilai pada tanggal</p>
@@ -111,10 +105,7 @@ public class Invoice
     * <p>Method memberikan nilai pada total bayaran</p>
     * @param totalFee
      */
-    public void setTotalFee(int totalFee)
-    {
-        this.totalFee = totalFee;
-    }
+    public abstract void setTotalFee();
      /**
     * <p>Method memberikan nilai pada pelamar kerja</p>
     * @param jobseeker
@@ -124,29 +115,13 @@ public class Invoice
         this.jobseeker = jobseeker;
     }
     /**
-    * <p>Method memberikan nilai pada tipe pembayaran</p>
-    * @param paymentType
-     */
-     public void setPaymentType(PaymentType paymentType)
-    {
-        this.paymentType = paymentType;
-    }
-    /**
     * <p>Method memberikan nilai pada  status invoice</p>
     * @param status
      */
     public void setInvoiceStatus(InvoiceStatus status)
     {
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
-    public void printData()
-    {
-        System.out.println("====== INVOICE ======");
-        System.out.println("ID: " + getId());
-        System.out.println("ID Job: " + getIdJob());
-        System.out.println("Date : " + getDate());
-        System.out.println("Seeker: " + getJobseeker().getName());
-        System.out.println("Fee: " + getTotalFee());
-        System.out.println("Status: " + getInvoiceStatus());
-    }
+    //Method menampilkan data
+    public abstract void printData();
 }
