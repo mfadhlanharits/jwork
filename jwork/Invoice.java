@@ -3,7 +3,7 @@
  * @author Muhammad Fadhlan Harits
  * @version 1 April 2021
  */
-public abstract class Invoice
+abstract class Invoice
 {
     // variabel yang digunakan
     private int id;
@@ -118,7 +118,7 @@ public abstract class Invoice
     * <p>Method memberikan nilai pada  status invoice</p>
     * @param status
      */
-    public void setInvoiceStatus(InvoiceStatus status)
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus)
     {
         this.invoiceStatus = invoiceStatus;
     }

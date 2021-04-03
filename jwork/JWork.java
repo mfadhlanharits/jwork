@@ -12,26 +12,22 @@ public class JWork
          
         Recruiter r1 = new Recruiter(28, "Fadhlan", "fadhlan@hotmail.com", "081234", location1);
          
-        Job j1 = new Job(23, "Javascript Engineer", r1, 24000, JobCategory.WebDeveloper);
+        //Job j1 = new Job(23, "Javascript Engineer", r1, 30, JobCategory.WebDeveloper);
+        
+        Job j2 = new Job(98, "DevOps Engineer", r1, 40, JobCategory.DevOps);
         
         Jobseeker js1 = new Jobseeker(20, "Harits", "harits@hotmail.com", "haritspass123", "27/03/2021");
         
-        Bonus bn1 = new Bonus(35, "a123", 234, 33, true);
+        BankPayment bp1 = new BankPayment(101, j2, "3 April 2021", js1, InvoiceStatus.Finished);
         
-        EwalletPayment ep1 = new EwalletPayment(35, j1, "01-04-2021", js1, InvoiceStatus.OnGoing);
+        BankPayment bp2 = new BankPayment(102, j2, "3 April 2021", js1, InvoiceStatus.Finished, 10);
         
-        EwalletPayment ep2 = new EwalletPayment(70, j1, "01-04-2021", js1, bn1, InvoiceStatus.OnGoing);
+        bp1.setTotalFee();
         
-        EwalletPayment ep3 = new EwalletPayment(100, j1, "01-04-2021", js1, bn1, InvoiceStatus.OnGoing);
+        bp2.setTotalFee();
         
-        ep2.totalFee = 12;
+        bp1.printData();
         
-        ep3.totalFee = 400;
-        
-        ep1.printData();
-        
-        ep2.printData();
-        
-        ep3.printData();
+        bp2.printData();
     }
 }

@@ -13,7 +13,7 @@ public class Bonus
     private boolean active;
     /**
     * <p>Konstruktur bonus</p>
-    * @param id, idJob, 
+    * @param id, referralCode, extraFee, minTotalFee, active
      */
     public Bonus(int id, String referralCode, int extraFee, int minTotalFee, boolean active)
     {
@@ -23,7 +23,6 @@ public class Bonus
         this.minTotalFee = minTotalFee;
         this.active = active;
     }
-
     /**
     * <p>Method mengambil id bonus sehingga memiliki return id</p>
     * @return id

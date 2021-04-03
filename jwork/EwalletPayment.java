@@ -4,25 +4,30 @@
  */
 public class EwalletPayment extends Invoice
 {
-    //h your own
+    //variabel yang digunakan
     private static PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
     private Bonus bonus;
 
     /**
-     * Constructor for objects of class EwalletPayment
+     * Konstruktur kelas EwalletPayment
+     * @param id, job, date, jobseeker, invoicestatus
      */
     public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
         super(id, job, date, jobseeker, invoiceStatus);
     }
-    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, Bonus bonus, InvoiceStatus invoiceStatus)
+    /**
+     * Konstruktur kelas EwalletPayment
+     * @param id, job, date, jobseeker, invoicestatus, bonus
+     */
+    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus, Bonus bonus)
     {
         super(id, job, date, jobseeker, invoiceStatus);
         this.bonus = bonus;
     }
     
     /**
-    * <p>Method mengambil paymenttype sehingga memiliki paymenttype</p>
+    * <p>Method mengambil paymenttype sehingga memiliki return paymenttype</p>
     * @return paymentType
      */
     public PaymentType getPaymentType()
@@ -38,7 +43,7 @@ public class EwalletPayment extends Invoice
         return bonus;
     }
     /**
-    * <p>Method mengambil bonus sehingga returnnya adalah bonus</p>
+    * <p>Method menmberi nilai bonus sehingga paramnya adalah bonus</p>
     * @param bonus
      */
     public void setBonus(Bonus bonus)
@@ -51,27 +56,29 @@ public class EwalletPayment extends Invoice
      */
     public void setTotalFee()
     {
-        if(bonus instanceof Bonus && bonus.getActive()==true && super.getJob().getFee() > bonus.getMinTotalFee())
+        if(bonus != null && (bonus.getActive()==true) && getJob().getFee() >= bonus.getMinTotalFee())
         {
-            totalFee = super.getJob().getFee() + bonus.getExtraFee();
+            totalFee = getJob().getFee() + bonus.getExtraFee();
         }
-        super.totalFee = super.getJob().getFee();
+        else
+        {
+            totalFee = getJob().getFee();
+        }
     }
     //method menampilkan data
     public void printData()
     {
         System.out.println("==== INVOICE ====");
         System.out.println("ID: " + getId());
-        System.out.println("Job : " + getJob().getCategory());
+        System.out.println("Job : " + getJob().getName());
         System.out.println("Date: " + getDate());
         System.out.println("Jobseeker: " + getJobseeker().getName());
-        System.out.println("Invoice Status: " + getInvoiceStatus());
-        System.out.println("Payment type: " + getPaymentType());
-        
-        if(bonus instanceof Bonus && bonus.getActive()==true && super.getJob().getFee() > bonus.getMinTotalFee())
+        if(bonus != null && (bonus.getActive() == true) && getJob().getFee() >= bonus.getMinTotalFee())
         {
-            System.out.println("Total Fee: " + getTotalFee());
             System.out.println("Referral code: " + bonus.getReferralCode());
         }
+        System.out.println("Total Fee: " + getTotalFee());
+        System.out.println("Invoice Status: " + getInvoiceStatus());
+        System.out.println("Payment type: " + getPaymentType());
     }
 }
