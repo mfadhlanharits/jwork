@@ -3,6 +3,7 @@
  * @author Muhammad Fadhlan Harits
  * @version 1 April 2021
  */
+import java.util.Calendar;
 public class JWork
 {
     
@@ -16,18 +17,16 @@ public class JWork
         
         Job j2 = new Job(98, "DevOps Engineer", r1, 40, JobCategory.DevOps);
         
-        Jobseeker js1 = new Jobseeker(20, "Harits", "harits@hotmail.com", "haritspass123", "27/03/2021");
+        Calendar c1 = Calendar.getInstance();
         
-        BankPayment bp1 = new BankPayment(101, j2, "3 April 2021", js1, InvoiceStatus.Finished);
+        Jobseeker js1 = new Jobseeker(20, "Harits", ".harits@.hotmail.net", "pas", c1);
         
-        BankPayment bp2 = new BankPayment(102, j2, "3 April 2021", js1, InvoiceStatus.Finished, 10);
+        Jobseeker js2 = new Jobseeker(22, "Fadhlan", "fadhlan@hotmail.net", "In1passW0rd", 2021, 11, 30);
         
-        bp1.setTotalFee();
+        Jobseeker js3 = new Jobseeker(26, "james", "james@hotmail.net", "In1passW0rd");
         
-        bp2.setTotalFee();
-        
-        bp1.printData();
-        
-        bp2.printData();
+        js1.setEmail("harits@hotmail.com");
+        js1.setPassword("Har1ts2345");
+        System.out.println(js1.toString());
     }
 }

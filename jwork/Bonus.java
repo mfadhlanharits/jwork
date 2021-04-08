@@ -1,7 +1,7 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 1 April 2021
+ * @version 8 April 2021
  */
 public class Bonus
 {
@@ -104,12 +104,8 @@ public class Bonus
         this.active = active;
     }
     //Method untuk menampilkan data
-    public void printData()
+    public String toString()
     {
-        System.out.println(getId());
-        System.out.println(getReferralCode());
-        System.out.println(getExtraFee());
-        System.out.println(getMinTotalFee());
-        System.out.println(getActive());
+        return "\nID: " + getId() + "\nReferral Code: " + getReferralCode() + "\nExtra Fee: " + getExtraFee() + "\nMin Total Fee: " + getMinTotalFee() + "\nActive Status: " + getActive();
     }
 }

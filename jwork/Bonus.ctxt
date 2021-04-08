@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Bonus
-comment0.text=\n\ @author\ Muhammad\ Fadhlan\ Harits\n\ @version\ 1\ April\ 2021\n
+comment0.text=\n\ @author\ Muhammad\ Fadhlan\ Harits\n\ @version\ 8\ April\ 2021\n
 comment1.params=id\ referralCode\ extraFee\ minTotalFee\ active
 comment1.target=Bonus(int,\ java.lang.String,\ int,\ int,\ boolean)
 comment1.text=\n\ <p>Konstruktur\ bonus</p>\n\ @param\ id,\ referralCode,\ extraFee,\ minTotalFee,\ active\n
@@ -11,7 +11,7 @@ comment11.params=active
 comment11.target=void\ setActive(boolean)
 comment11.text=\n\ <p>Method\ memberikan\ nilai\ pada\ status\ aktif</p>\n\ @param\ active\n
 comment12.params=
-comment12.target=void\ printData()
+comment12.target=java.lang.String\ toString()
 comment2.params=
 comment2.target=int\ getId()
 comment2.text=\n\ <p>Method\ mengambil\ id\ bonus\ sehingga\ memiliki\ return\ id</p>\n\ @return\ id\n

@@ -56,7 +56,7 @@ public class BankPayment extends Invoice
      */
     public void setTotalFee()
     {
-        if(adminFee > 0)
+        if(adminFee != 0)
         {
             totalFee = getJob().getFee() - getAdminFee();
         }

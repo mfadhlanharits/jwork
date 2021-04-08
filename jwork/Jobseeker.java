@@ -1,8 +1,13 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 18 Maret 2021
+ * @version 8 April 2021
  */
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.text.SimpleDateFormat;
 public class Jobseeker
 {
     //variabel yang digunakan
@@ -10,19 +15,43 @@ public class Jobseeker
     private String name;
     private String email;
     private String password;
-    private String joinDate;
+    public Calendar joinDate;
     
     /**
     * <p>Konstruktur jobseeker</p>
     * @param id, name, email, password, joinDate
      */
-    public Jobseeker(int id, String name, String email, String password, String joinDate)
+    public Jobseeker(int id, String name, String email, String password, Calendar joinDate)
     {
         this.id = id;
         this.name = name;
-        this.email = email;
-        this.password = password;
+        setEmail(email);
+        setPassword(password);
         this.joinDate = joinDate;
+    }
+    /**
+    * <p>Konstruktur jobseeker</p>
+    * @param id, name, email, password, year, month, dayOfMonth
+     */
+    public Jobseeker(int id, String name, String email, String password, int year, int month, int dayOfMonth)
+    {
+        this.id = id;
+        this.name = name;
+        setEmail(email);
+        setPassword(password);
+        this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
+    }
+    /**
+    * <p>Konstruktur jobseeker</p>
+    * @param id, name, email, password
+     */
+    public Jobseeker(int id, String name, String email, String password)
+    {
+        this.id = id;
+        this.name = name;
+        setEmail(email);
+        setPassword(password);
+
     }
     /**
      * <p>Method ini akan mengambil ID jobseeker sehingga returnnya id</p>
@@ -60,7 +89,7 @@ public class Jobseeker
      * <p>Method ini akan mengambil tanggal jobseeker bergabung sehingga returnnya joindate</p>
      * @return joinDate
      */
-    public String getJoinDate()
+    public Calendar getJoinDate()
     {
         return joinDate;
     }
@@ -86,7 +115,17 @@ public class Jobseeker
      */
     public void setEmail(String email)
     {
-        this.email=email;
+        String re = "^(?!.*([.])\1)[^.][a-zA-Z0-9.&*_~]+@[^-. ][a-zA-Z0-9-.&*_~]+(?:\\.[a-zA-Z0-9-]+)*";
+        Pattern p = Pattern.compile(re);
+        Matcher m = p.matcher(email);
+        if(m.find())
+        {
+            this.email = email;
+        }
+        else
+        {
+            this.email = null;
+        }
     }
     /**
      * <p>Method ini akan memberi nilai password jobseeker sehingga parameternya nama</p>
@@ -94,19 +133,43 @@ public class Jobseeker
      */
     public void setPassword(String password)
     {
-        this.password=password;
+        String re = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{6,}$";
+        Pattern p = Pattern.compile(re);
+        Matcher m = p.matcher(password);
+        if(m.find())
+        {
+            this.password = password;
+        }
+        else
+        {
+            this.password = null;
+        }
     }
     /**
      * <p>Method ini akan memberi nilai tanggal jobseeker bergabung sehingga parameternya joindate</p>
      * @param joinDate
      */
-    public void setJoinDate(String joinDate)
+    public void setJoinDate(Calendar joinDate)
     {
         this.joinDate=joinDate;
     }
-    //Method ini akan menampilkan nama pelamar
-    public void printData()
+    /**
+     * <p>Method ini akan memberi nilai tanggal jobseeker bergabung sehingga parameternya joindate</p>
+     * @param joinDate
+     */
+    public void setJoinDate(int year, int month, int dayOfMonth)
     {
-        System.out.println("Nama pelamar : " + getName());
+        joinDate.set(year, month, dayOfMonth);
     }
+    //Method ini akan menampilkan nama pelamar
+    public String toString()
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+        if(this.joinDate != null)
+        {
+            return "\nID: " + getID() + "\nNama: " + getName() + "\nEmail: " + getEmail() + "\nPassword: " + getPassword() + "\nJoin Date: " + sdf.format(getJoinDate().getTime());
+        }
+        return "\nID: " + getID() + "\nNama: " + getName() + "\nEmail: " + getEmail() + "\nPassword: " + getPassword();
+    }
+    
 }

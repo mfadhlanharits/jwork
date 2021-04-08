@@ -1,6 +1,6 @@
 /**
  * @author Muhammad Fadhlan Harits
- * @version 18 Maret 2021
+ * @version 8 April 2021
  */
 public class Location
 {
@@ -68,9 +68,9 @@ public class Location
     {
         this.description = description;
     }
-    //Method ini akan menampilkan nama provinsi
-    public void printData()
+    //Method ini akan menampilkan data lokasi
+    public String toString()
     {
-        System.out.println("Provinsinya : " + getProvince());
+         return "\nProvince : " + getProvince() + "\nCity: " + getCity() + "\nDescription: " + getDescription();
     }
 }

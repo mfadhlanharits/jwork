@@ -1,7 +1,7 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 25 Maret 2021
+ * @version 8 April 2021
  */
 public class Job
 {
@@ -103,14 +103,9 @@ public class Job
     {
         this.category = category;
     }
-    public void printData()
+    public String toString()
     {
-        System.out.println("======= JOB ======= ");
-        System.out.println("ID: " + getId());
-        System.out.println("Name: " +getName());
-        System.out.println("Recruiter: " + getRecruiter().getName());
-        System.out.println("City: " + getRecruiter().getLocation().getCity());
-        System.out.println("Fee: " + getFee());
-        System.out.println("Category: " +getCategory());
+        return "\nID: " + getId() + "\nName: " + getName() + "\nRecruiter: " + getRecruiter().getName() + "\nCity: " + getRecruiter().getLocation().getCity() + "\nFee: " + getFee() + "\nCategory: " + getCategory(); 
+
     }
 }

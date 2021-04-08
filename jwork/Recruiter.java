@@ -1,7 +1,7 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 25 Maret 2021
+ * @version 8 April 2021
  */
 public class Recruiter
 {
@@ -105,8 +105,8 @@ public class Recruiter
         this.location=location;
     }
     //Method ini akan menampilkan nama recruiter
-    public void printData()
+    public String toString()
     {
-        System.out.println("Name: " + getName());
+        return "\nID: " + getID() + "\nName: " + getName() + "\nPhone Number: " + getPhoneNumber() + "\nLocation: " + getLocation().getCity();
     }
 }
