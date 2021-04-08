@@ -124,7 +124,7 @@ public class Jobseeker
         }
         else
         {
-            this.email = null;
+            this.email = "";
         }
     }
     /**
@@ -142,7 +142,7 @@ public class Jobseeker
         }
         else
         {
-            this.password = null;
+            this.password = "";
         }
     }
     /**

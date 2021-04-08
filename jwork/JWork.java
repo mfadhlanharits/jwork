@@ -25,8 +25,10 @@ public class JWork
         
         Jobseeker js3 = new Jobseeker(26, "james", "james@hotmail.net", "In1passW0rd");
         
-        js1.setEmail("harits@hotmail.com");
-        js1.setPassword("Har1ts2345");
         System.out.println(js1.toString());
+        System.out.println("");
+        System.out.println(js2.toString());
+        System.out.println("");
+        System.out.println(js3.toString());
     }
 }
