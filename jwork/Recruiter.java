@@ -107,6 +107,6 @@ public class Recruiter
     //Method ini akan menampilkan nama recruiter
     public String toString()
     {
-        return "\nID: " + getID() + "\nName: " + getName() + "\nPhone Number: " + getPhoneNumber() + "\nLocation: " + getLocation().getCity();
+        return "==== RECRUITER ====" + "\nID: " + getID() + "\nName: " + getName() + "\nPhone Number: " + getPhoneNumber() + "\nLocation: " + getLocation().getCity() + "\n";
     }
 }

@@ -1,7 +1,8 @@
+import java.text.SimpleDateFormat;
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 3 April 2021
+ * @version 10 April 2021
  */
 public class BankPayment extends Invoice
 {
@@ -13,18 +14,20 @@ public class BankPayment extends Invoice
      * Konstruktur kelas BankPayment
      * @param id, job, date, jobseeker, invoicestatus
      */
-    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
-        super(id, job, date, jobseeker, invoiceStatus);
+        super(id, job, jobseeker, invoiceStatus);
+        super.setDate(getDate());
     }
     /**
      * Konstruktur kelas BankPayment
      * @param id, job, date, jobseeker, invoicestatus, adminfee
      */
-    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee)
+    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee)
     {
-        super(id, job, date, jobseeker, invoiceStatus);
+        super(id, job, jobseeker, invoiceStatus);
         this.adminFee = adminFee;
+        super.setDate(getDate());
     }
   /**
     * <p>Method mengambil paymenttype sehingga memiliki return paymenttype</p>
@@ -65,16 +68,9 @@ public class BankPayment extends Invoice
             totalFee = getJob().getFee();
         }
     }
-    public void printData()
+    public String toString()
     {
-        System.out.println("==== INVOICE ====");
-        System.out.println("ID: " + getId());
-        System.out.println("Job : " + getJob().getName());
-        System.out.println("Date: " + getDate());
-        System.out.println("Jobseeker: " + getJobseeker().getName());
-        System.out.println("Admin Fee: " + getAdminFee());
-        System.out.println("Total Fee: " + getTotalFee());
-        System.out.println("Invoice Status: " + getInvoiceStatus());
-        System.out.println("Payment type: " + getPaymentType());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+        return "==== INVOICE ====" + "ID: " + getId() + "Job : " + getJob().getName() + "Date: " + sdf.format(getDate().getTime()) + "Jobseeker: " + getJobseeker().getName() + "Admin Fee: " + getAdminFee() + "Total Fee: " + getTotalFee() + "Invoice Status: " + getInvoiceStatus() + "Payment type: " + getPaymentType();
     }
 }

@@ -105,7 +105,7 @@ public class Job
     }
     public String toString()
     {
-        return "\nID: " + getId() + "\nName: " + getName() + "\nRecruiter: " + getRecruiter().getName() + "\nCity: " + getRecruiter().getLocation().getCity() + "\nFee: " + getFee() + "\nCategory: " + getCategory(); 
+        return "==== JOB ====" + "\nID: " + getId() + "\nName: " + getName() + "\nRecruiter: " + getRecruiter().getName() + "\nCity: " + getRecruiter().getLocation().getCity() + "\nFee: " + getFee() + "\nCategory: " + getCategory() + "\n"; 
 
     }
 }

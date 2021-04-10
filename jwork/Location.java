@@ -71,6 +71,6 @@ public class Location
     //Method ini akan menampilkan data lokasi
     public String toString()
     {
-         return "\nProvince : " + getProvince() + "\nCity: " + getCity() + "\nDescription: " + getDescription();
+         return "==== LOCATION ====" + "\nProvince : " + getProvince() + "\nCity: " + getCity() + "\nDescription: " + getDescription() + "\n";
     }
 }

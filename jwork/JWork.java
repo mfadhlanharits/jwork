@@ -1,9 +1,11 @@
-
 /**
  * @author Muhammad Fadhlan Harits
- * @version 1 April 2021
+ * @version 10 April 2021
  */
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Date;
+
 public class JWork
 {
     
@@ -17,18 +19,23 @@ public class JWork
         
         Job j2 = new Job(98, "DevOps Engineer", r1, 40, JobCategory.DevOps);
         
-        Calendar c1 = Calendar.getInstance();
+        Calendar c1 = new GregorianCalendar();
+        
         
         Jobseeker js1 = new Jobseeker(20, "Harits", ".harits@.hotmail.net", "pas", c1);
         
         Jobseeker js2 = new Jobseeker(22, "Fadhlan", "fadhlan@hotmail.net", "In1passW0rd", 2021, 11, 30);
         
-        Jobseeker js3 = new Jobseeker(26, "james", "james@hotmail.net", "In1passW0rd");
+        Jobseeker js3 = new Jobseeker(26, "david", "david@hotmail.net", "In1passW0rd");
         
-        System.out.println(js1.toString());
-        System.out.println("");
-        System.out.println(js2.toString());
-        System.out.println("");
-        System.out.println(js3.toString());
+        EwalletPayment ep1 = new EwalletPayment(40, j2, js1, InvoiceStatus.OnGoing);
+        
+        BankPayment bp1 = new BankPayment(42, j2, js1, InvoiceStatus.OnGoing);
+        
+        ep1.setDate(c1);
+        bp1.setDate(c1);
+        
+        System.out.println(ep1.toString());
+        System.out.println(bp1.toString());
     }
 }

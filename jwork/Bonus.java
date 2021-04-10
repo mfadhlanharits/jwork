@@ -106,6 +106,6 @@ public class Bonus
     //Method untuk menampilkan data
     public String toString()
     {
-        return "\nID: " + getId() + "\nReferral Code: " + getReferralCode() + "\nExtra Fee: " + getExtraFee() + "\nMin Total Fee: " + getMinTotalFee() + "\nActive Status: " + getActive();
+        return "==== BONUS ====" + "\nID: " + getId() + "\nReferral Code: " + getReferralCode() + "\nExtra Fee: " + getExtraFee() + "\nMin Total Fee: " + getMinTotalFee() + "\nActive Status: " + getActive() + "\n";
     }
 }

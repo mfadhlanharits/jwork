@@ -3,12 +3,13 @@
  * @author Muhammad Fadhlan Harits
  * @version 1 April 2021
  */
+import java.util.Calendar;
 abstract class Invoice
 {
     // variabel yang digunakan
     private int id;
     private Job job;
-    private String date;
+    private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
     private InvoiceStatus invoiceStatus;
@@ -16,13 +17,13 @@ abstract class Invoice
     * <p>Konstruktur invoice</p>
     * @param id, idJob, date, totalFee, jobseeker, paymentType, status
      */
-    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
         this.id = id;
         this.job = job;
-        this.date = date;
         this.jobseeker = jobseeker;
         this.invoiceStatus = invoiceStatus;
+        setDate(date);
     }
     /**
     * <p>Method mengambil id invoice sehingga memiliki return id</p>
@@ -44,7 +45,7 @@ abstract class Invoice
     * <p>Method menentukan tanggal</p>
     * @return date
      */
-    public String getDate()
+    public Calendar getDate()
     {
         return date;
     }
@@ -97,9 +98,17 @@ abstract class Invoice
     * <p>Method memberikan nilai pada tanggal</p>
     * @param date
      */
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         this.date = date;
+    }
+     /**
+    * <p>Method memberikan nilai pada tanggal</p>
+    * @param date
+     */
+    public void setDate(int year, int month, int dayOfMonth)
+    {
+        date.set(year, month-1, dayOfMonth);
     }
      /**
     * <p>Method memberikan nilai pada total bayaran</p>
@@ -123,5 +132,5 @@ abstract class Invoice
         this.invoiceStatus = invoiceStatus;
     }
     //Method menampilkan data
-    public abstract void printData();
+    public abstract String toString();
 }

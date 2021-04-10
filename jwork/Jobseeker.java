@@ -39,10 +39,10 @@ public class Jobseeker
         this.name = name;
         setEmail(email);
         setPassword(password);
-        this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
+        this.joinDate = new GregorianCalendar(year, month-1, dayOfMonth);
     }
     /**
-    * <p>Konstruktur jobseeker</p>
+    * <p>Konstruktur jobseeker tanpa joinDate</p>
     * @param id, name, email, password
      */
     public Jobseeker(int id, String name, String email, String password)
@@ -159,7 +159,7 @@ public class Jobseeker
      */
     public void setJoinDate(int year, int month, int dayOfMonth)
     {
-        joinDate.set(year, month, dayOfMonth);
+        joinDate.set(year, month-1, dayOfMonth);
     }
     //Method ini akan menampilkan nama pelamar
     public String toString()
@@ -167,9 +167,9 @@ public class Jobseeker
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
         if(this.joinDate != null)
         {
-            return "\nID: " + getID() + "\nNama: " + getName() + "\nEmail: " + getEmail() + "\nPassword: " + getPassword() + "\nJoin Date: " + sdf.format(getJoinDate().getTime());
+            return "==== JOBSEEKER ====" + "\nID: " + getID() + "\nNama: " + getName() + "\nEmail: " + getEmail() + "\nPassword: " + getPassword() + "\nJoin Date: " + sdf.format(getJoinDate().getTime()) + "\n";
         }
-        return "\nID: " + getID() + "\nNama: " + getName() + "\nEmail: " + getEmail() + "\nPassword: " + getPassword();
+        return "==== JOBSEEKER ====" + "\nID: " + getID() + "\nNama: " + getName() + "\nEmail: " + getEmail() + "\nPassword: " + getPassword() + "\n";
     }
     
 }
