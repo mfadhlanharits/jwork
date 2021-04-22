@@ -1,16 +1,17 @@
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 1 April 2021
+ * @version 22 April 2021
  */
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.ArrayList;
 
 abstract class Invoice
 {
     // variabel yang digunakan
     private int id;
-    private Job job;
+    private ArrayList<Job> jobs;
     private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
@@ -19,12 +20,12 @@ abstract class Invoice
     * <p>Konstruktur invoice</p>
     * @param id, idJob, date, totalFee, jobseeker, paymentType, status
      */
-    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public Invoice(int id, ArrayList<Job> jobs, Jobseeker jobseeker)
     {
         this.id = id;
-        this.job = job;
+        this.jobs = jobs;
         this.jobseeker = jobseeker;
-        this.invoiceStatus = invoiceStatus;
+        this.invoiceStatus = InvoiceStatus.OnGoing;
         setDate(Calendar.getInstance());
     }
     /**
@@ -39,9 +40,9 @@ abstract class Invoice
     * <p>Method mengambil referralcode sehingga returnnya adalah referralcode</p>
     * @return idJob
      */
-    public Job getJob()
+    public ArrayList<Job> getJobs()
     {
-        return job;
+        return jobs;
     }
     /**
     * <p>Method menentukan tanggal</p>
@@ -90,11 +91,11 @@ abstract class Invoice
     }
      /**
     * <p>Method memberikan nilai pada pekerjaan</p>
-    * @param Job
+    * @param jobs
      */
-     public void setJob(Job job)
+     public void setJobs(ArrayList<Job> jobs)
     {
-        this.job = job;
+        this.jobs = jobs;
     }
      /**
     * <p>Method memberikan nilai pada tanggal</p>
@@ -105,8 +106,8 @@ abstract class Invoice
         this.date = date;
     }
      /**
-    * <p>Method memberikan nilai pada tanggal</p>
-    * @param date
+      * <p>Method memberikan nilai pada tanggal</p>
+      * @paramdate
      */
     public void setDate(int year, int month, int dayOfMonth)
     {
@@ -114,7 +115,7 @@ abstract class Invoice
     }
      /**
     * <p>Method memberikan nilai pada total bayaran</p>
-    * @param totalFee
+    * @paramtotalFee
      */
     public abstract void setTotalFee();
      /**
@@ -127,7 +128,7 @@ abstract class Invoice
     }
     /**
     * <p>Method memberikan nilai pada  status invoice</p>
-    * @param status
+    * @paramstatus
      */
     public void setInvoiceStatus(InvoiceStatus invoiceStatus)
     {

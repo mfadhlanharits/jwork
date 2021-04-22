@@ -1,8 +1,9 @@
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 10 April 2021
+ * @version 22 April 2021
  */
 public class EwalletPayment extends Invoice
 {
@@ -14,17 +15,17 @@ public class EwalletPayment extends Invoice
      * Konstruktur kelas EwalletPayment
      * @param id, job, date, jobseeker, invoicestatus
      */
-    public EwalletPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker)
     {
-        super(id, job, jobseeker, invoiceStatus);
+        super(id, jobs, jobseeker);
     }
     /**
      * Konstruktur kelas EwalletPayment
      * @param id, job, date, jobseeker, invoicestatus, bonus
      */
-    public EwalletPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus, Bonus bonus)
+    public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, Bonus bonus)
     {
-        super(id, job, jobseeker, invoiceStatus);
+        super(id, jobs, jobseeker);
         super.setDate(getDate());
         this.bonus = bonus;
     }
@@ -59,23 +60,27 @@ public class EwalletPayment extends Invoice
      */
     public void setTotalFee()
     {
-        if(bonus != null && (bonus.getActive()==true) && getJob().getFee() >= bonus.getMinTotalFee())
+        for(Job j : getJobs())
         {
-            totalFee = getJob().getFee() + bonus.getExtraFee();
-        }
-        else
-        {
-            totalFee = getJob().getFee();
+            if (bonus != null && (bonus.getActive() == true) && j.getFee() >= bonus.getMinTotalFee()) {
+                totalFee = j.getFee() + bonus.getExtraFee();
+            } else {
+                totalFee = j.getFee();
+            }
         }
     }
     //method menampilkan data
     public String toString()
     {
+        String output="";
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
-        if(bonus != null && (bonus.getActive() == true) && getJob().getFee() >= bonus.getMinTotalFee())
-        {
-            return "==== PAYMENT ====" + "\nID: " + getId() + "\nJob : " + getJob().getName() + "\nDate: " + sdf.format(getDate().getTime()) + "\nJobseeker: " + getJobseeker().getName() + "\nReferral code: " + bonus.getReferralCode() + "\nTotal Fee: " + getTotalFee() + "\nInvoice Status: " + getInvoiceStatus() + "\nPayment type: " + getPaymentType();
+        for(Job j : getJobs()){
+            if (bonus != null && (bonus.getActive() == true) && j.getFee() >= bonus.getMinTotalFee()) {
+                output = "==== PAYMENT ====" + "\nID: " + getId() + "\nJob : " + j.getName() + "\nDate: " + sdf.format(getDate().getTime()) + "\nJobseeker: " + getJobseeker().getName() + "\nReferral code: " + bonus.getReferralCode() + "\nTotal Fee: " + getTotalFee() + "\nInvoice Status: " + getInvoiceStatus() + "\nPayment type: " + getPaymentType();
+            }
+            output = "==== PAYMENT ====" + "\nID: " + getId() + "\nJob : " + j.getName() + "\nDate: " + sdf.format(getDate().getTime()) + "\nJobseeker: " + getJobseeker().getName() + "\nTotal Fee: " + getTotalFee() + "\nInvoice Status: " + getInvoiceStatus() + "\nPayment type: " + getPaymentType();
+
         }
-        return "==== PAYMENT ====" + "\nID: " + getId() + "\nJob : " + getJob().getName() + "\nDate: " + sdf.format(getDate().getTime()) + "\nJobseeker: " + getJobseeker().getName() + "\nTotal Fee: " + getTotalFee() + "\nInvoice Status: " + getInvoiceStatus() + "\nPayment type: " + getPaymentType();
+        return output;
     }
 }

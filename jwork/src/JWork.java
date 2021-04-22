@@ -2,9 +2,7 @@
  * @author Muhammad Fadhlan Harits
  * @version 10 April 2021
  */
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Date;
+import java.util.*;
 
 public class JWork
 {
@@ -13,26 +11,25 @@ public class JWork
     {
         Location location1 = new Location("DKI Jakarta", "Jakarta Selatan", "Kota di Jakarta"); 
          
-        Recruiter r1 = new Recruiter(28, "Fadhlan", "fadhlan@hotmail.com", "081234", location1);
-         
-        //Job j1 = new Job(23, "Javascript Engineer", r1, 30, JobCategory.WebDeveloper);
-        
-        Job j2 = new Job(98, "DevOps Engineer", r1, 40, JobCategory.DevOps);
-        
-        
-       // Jobseeker js1 = new Jobseeker(20, "Harits", ".harits@.hotmail.net", "pas", c1);
-        
-        Jobseeker js2 = new Jobseeker(22, "Fadhlan", "fadhlan@hotmail.net", "In1passW0rd", 2021, 11, 30);
-        
-        Jobseeker js3 = new Jobseeker(26, "david", "david@hotmail.net", "In1passW0rd");
-        
-        Calendar c1 = new GregorianCalendar();
-        
-        EwalletPayment ep1 = new EwalletPayment(40, j2, js2, InvoiceStatus.OnGoing);
-        
-        BankPayment bp1 = new BankPayment(42, j2, js2, InvoiceStatus.OnGoing);
-        
-        System.out.println(ep1.toString());
-        System.out.println(bp1.toString());
+        //Recruiter r1 = new Recruiter(28, "Fadhlan", "fadhlan@hotmail.com", "081234", location1);
+
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId()+1, "Fadhlan", "fadhlan@hotmail.com", "081234", location1));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Fadhlan", "fadhlan@hotmail.com", "lalala", 2021, 4, 22));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Fadhlan", "fadhlan@hotmail.com", "lalala", 2021, 4, 22));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Fajar", "fajar@hotmail.com", "lalala", 2021, 4, 23));
+
+        ArrayList<Jobseeker> jss = DatabaseJobseeker.getJobseekerDatabase();
+        for(Jobseeker js : jss){
+            System.out.println(js.toString());
+        }
+
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Devops", DatabaseRecruiter.getRecruiterById(28), 1000000, JobCategory.DevOps));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Devops Engineer", DatabaseRecruiter.getRecruiterById(28), 10000001, JobCategory.DevOps));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Backend Engineer", DatabaseRecruiter.getRecruiterById(28), 100000034, JobCategory.BackEnd));
+
+        ArrayList<Job> jjj = DatabaseJob.getByCategory(JobCategory.DevOps);
+        for(Job j : jjj){
+            System.out.println(j.toString());
+        }
     }
 }
