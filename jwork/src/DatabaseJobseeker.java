@@ -6,7 +6,7 @@ import java.util.ArrayList;
  */
 public class DatabaseJobseeker
 {
-    private static ArrayList<Jobseeker> JOBSEEKER_DATABASE = new ArrayList<>();
+    private static ArrayList<Jobseeker> JOBSEEKER_DATABASE = new ArrayList<Jobseeker>();
     private static int lastId=0;
     /**
      * Akan mengembalikan database pelamar sehingga returnnya JOBSEEKER_DATABASE
@@ -35,9 +35,10 @@ public class DatabaseJobseeker
             if(js.getID() == id){
                 js1 = js;
             }
-            else{
-                return null;
-            }
+        }
+        if(js1==null)
+        {
+            return null;
         }
         return js1;
     }
@@ -63,14 +64,11 @@ public class DatabaseJobseeker
      */
     public static boolean removeJobseeker(int id)
     {
-        boolean b = true;
+        boolean b = false;
         for(Jobseeker js : JOBSEEKER_DATABASE){
             if(js.getID() == id){
                 JOBSEEKER_DATABASE.remove(js);
                 b = true;
-            }
-            else{
-                b = false;
             }
         }
         return b;

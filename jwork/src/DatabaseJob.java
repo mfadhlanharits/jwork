@@ -37,9 +37,10 @@ public class DatabaseJob
             if(j.getId()==id){
                 j1 = j;
             }
-            else {
-                return null;
-            }
+        }
+        if(j1==null)
+        {
+            return null;
         }
         return j1;
     }
@@ -49,16 +50,16 @@ public class DatabaseJob
      */
     public static ArrayList<Job> getByRecruiter(int recruiterId)
     {
-        ArrayList<Job> gbr = new ArrayList<>();
+        ArrayList<Job> gbr = new ArrayList<Job>();
         for(Job jj : JOB_DATABASE){
             if(jj.getRecruiter().getID() == recruiterId){
                 gbr.add(jj);
             }
-            else {
-                return null;
-            }
         }
-
+        if(gbr.isEmpty())
+        {
+            return null;
+        }
         return gbr;
     }
     /**
@@ -67,14 +68,15 @@ public class DatabaseJob
      */
     public static ArrayList<Job> getByCategory(JobCategory category)
     {
-        ArrayList<Job> gbc = new ArrayList<>();
+        ArrayList<Job> gbc = new ArrayList<Job>();
         for(Job jj : JOB_DATABASE){
-            if(jj.getCategory() == category){
+            if(jj.getCategory().equals(category)){
                 gbc.add(jj);
             }
-            else {
-                return null;
-            }
+        }
+        if(gbc.isEmpty())
+        {
+            return null;
         }
         return gbc;
     }
@@ -94,14 +96,11 @@ public class DatabaseJob
      */
     public static boolean removeJob(int id)
     {
-        boolean b = true;
+        boolean b = false;
         for(Job j : JOB_DATABASE){
-            if(j.getId() == id){
+            if(j.getId() == id) {
                 JOB_DATABASE.remove(j);
                 b = true;
-            }
-            else{
-                b = false;
             }
         }
 

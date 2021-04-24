@@ -5,8 +5,8 @@
 import java.util.ArrayList;
 public class DatabaseBonus
 {
-    private static ArrayList<Bonus> BONUS_DATABASE = new ArrayList<>();
-    private static int lastId;
+    private static ArrayList<Bonus> BONUS_DATABASE = new ArrayList<Bonus>();
+    private static int lastId=0;
     /**
      * Akan mengembalikan bonus database sehingga returnnya BONUS DATABASE
      * @return BONUS_DATABASE
@@ -80,14 +80,11 @@ public class DatabaseBonus
      */
     public static boolean activeBonus(int id)
     {
-        boolean bo = true;
+        boolean bo = false;
         for(Bonus b : BONUS_DATABASE){
             if(b.getId()==id){
                 b.setActive(true);
                 bo = true;
-            }
-            else {
-                bo = false;
             }
         }
         return bo;
@@ -98,14 +95,11 @@ public class DatabaseBonus
      */
     public static boolean deactivateBonus(int id)
     {
-        boolean bo = true;
+        boolean bo = false;
         for(Bonus b : BONUS_DATABASE){
             if(b.getId()==id){
                 b.setActive(true);
                 bo = true;
-            }
-            else {
-                bo = false;
             }
         }
         return bo;
@@ -116,14 +110,11 @@ public class DatabaseBonus
      */
     public static boolean removeBonus(int id)
     {
-        boolean b1 = true;
+        boolean b1 = false;
         for(Bonus b : BONUS_DATABASE){
             if(b.getId() == id){
                 BONUS_DATABASE.remove(b);
                 b1 = true;
-            }
-            else{
-                b1 = false;
             }
         }
 

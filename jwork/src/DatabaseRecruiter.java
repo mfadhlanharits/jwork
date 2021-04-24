@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class DatabaseRecruiter
 {
     // variabel yang digunakan
-    private static ArrayList<Recruiter> RECRUITER_DATABASE = new ArrayList<>();
+    private static ArrayList<Recruiter> RECRUITER_DATABASE = new ArrayList<Recruiter>();
     private static int lastId=0;
     /**
      * akan mengembalikan recruiterdatabase
@@ -33,13 +33,16 @@ public class DatabaseRecruiter
     public static Recruiter getRecruiterById(int id)
     {
         Recruiter r1=null;
-        for(int i=0;i<RECRUITER_DATABASE.size();i++){
-            if(RECRUITER_DATABASE.get(i).getID() == id){
+        for(int i=0;i<RECRUITER_DATABASE.size();i++)
+        {
+            if(RECRUITER_DATABASE.get(i).getID() == id)
+            {
                 r1 = RECRUITER_DATABASE.get(i);
             }
-            else {
-                return null;
-            }
+        }
+        if(r1==null)
+        {
+            return null;
         }
         return r1;
     }
@@ -59,14 +62,11 @@ public class DatabaseRecruiter
      */
     public static boolean removeRecruiter(int id)
     {
-        boolean b = true;
+        boolean b = false;
         for(int i=0;i<RECRUITER_DATABASE.size();i++){
             if(RECRUITER_DATABASE.get(i).getID() == id){
                 RECRUITER_DATABASE.remove(i);
                 b = true;
-            }
-            else {
-                b = false;
             }
         }
         return b;
