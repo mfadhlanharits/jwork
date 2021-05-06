@@ -71,8 +71,9 @@ public class DatabaseInvoice {
      */
     public static boolean addInvoice(Invoice invoice)
     {
-       for (int i=0;i<INVOICE_DATABASE.size();i++){
-            if(INVOICE_DATABASE.get(i).getInvoiceStatus() == InvoiceStatus.OnGoing)
+       for (int i=0;i<INVOICE_DATABASE.size();i++)
+       {
+            if(getInvoiceByJobseeker(INVOICE_DATABASE.get(i).getJobseeker().getID()).get(i).getInvoiceStatus() == InvoiceStatus.OnGoing)
             {
                 return false;
             }
@@ -82,6 +83,7 @@ public class DatabaseInvoice {
         lastId = invoice.getId();
         return true;
     }
+
     /**
      * Akan mengubah status invoice sehingga parameternya id dan invoiceStatus
      * @param id, invoiceStatus
@@ -91,7 +93,7 @@ public class DatabaseInvoice {
         boolean b = false;
        for (int i=0;i<INVOICE_DATABASE.size();i++)
        {
-            if(INVOICE_DATABASE.get(i).getId() == id)
+           if(INVOICE_DATABASE.get(i).getId() == id && INVOICE_DATABASE.get(i).getInvoiceStatus() == InvoiceStatus.OnGoing)
             {
                 INVOICE_DATABASE.get(i).setInvoiceStatus(invoiceStatus);
                 b = true;

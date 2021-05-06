@@ -30,7 +30,7 @@ public class DatabaseRecruiter
      * @param id
      * @return null
      */
-    public static Recruiter getRecruiterById(int id)
+    public static Recruiter getRecruiterById(int id) throws RecruiterNotFoundException
     {
         Recruiter r1=null;
         for(int i=0;i<RECRUITER_DATABASE.size();i++)
@@ -42,7 +42,8 @@ public class DatabaseRecruiter
         }
         if(r1==null)
         {
-            return null;
+            RecruiterNotFoundException e = new RecruiterNotFoundException(id);
+            System.out.println(e.getMessage());
         }
         return r1;
     }
@@ -60,7 +61,7 @@ public class DatabaseRecruiter
      * akan menghapus recruiter sehingga parameternya id
      * @param  id
      */
-    public static boolean removeRecruiter(int id)
+    public static boolean removeRecruiter(int id) throws RecruiterNotFoundException
     {
         boolean b = false;
         for(int i=0;i<RECRUITER_DATABASE.size();i++){
@@ -68,6 +69,11 @@ public class DatabaseRecruiter
                 RECRUITER_DATABASE.remove(i);
                 b = true;
             }
+        }
+        if(b==false)
+        {
+            RecruiterNotFoundException e = new RecruiterNotFoundException(id);
+            System.out.println(e.getMessage());
         }
         return b;
     }

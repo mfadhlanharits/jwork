@@ -18,7 +18,7 @@ public class DatabaseJobseeker
     }
     /**
      * Akan mengembalikan id terakhir sehingga returnnya lastId
-     * @return JOBSEEKER DATABASE
+     * @return lastId
      */
     public static int getLastId()
     {
@@ -28,7 +28,7 @@ public class DatabaseJobseeker
      * Akan mengembalikan profesi berdasarkan id sehingga returnnya null
      * @param  id
      */
-    public static Jobseeker getJobseekerById(int id)
+    public static Jobseeker getJobseekerById(int id) throws JobSeekerNotFoundException
     {
         Jobseeker js1 = null;
         for(Jobseeker js : JOBSEEKER_DATABASE){
@@ -38,7 +38,8 @@ public class DatabaseJobseeker
         }
         if(js1==null)
         {
-            return null;
+            JobSeekerNotFoundException e = new JobSeekerNotFoundException(id);
+            System.out.println(e.getMessage());
         }
         return js1;
     }
@@ -46,23 +47,29 @@ public class DatabaseJobseeker
      * Akan menambah pelamar sehingga parameternya jobseeker
      * @param jobseeker
      */
-    public static boolean addJobseeker(Jobseeker jobseeker)
+    public static boolean addJobseeker(Jobseeker jobseeker) throws EmailAlreadyExistsException
     {
+        boolean b=true;
         for (int i=0;i<JOBSEEKER_DATABASE.size();i++){
             if(JOBSEEKER_DATABASE.get(i).getEmail() == jobseeker.getEmail()){
-                return false;
+                b=false;
             }
         }
-
+        if(b==false)
+        {
+            EmailAlreadyExistsException e = new EmailAlreadyExistsException(jobseeker);
+            System.out.println(e.getMessage());
+            return b;
+        }
         JOBSEEKER_DATABASE.add(jobseeker);
         lastId = jobseeker.getID();
-        return true;
+        return b;
     }
    /**
      * Akan menghapus pelamar sehingga parameternya jobseeker
      * @param id
      */
-    public static boolean removeJobseeker(int id)
+    public static boolean removeJobseeker(int id) throws JobSeekerNotFoundException
     {
         boolean b = false;
         for(Jobseeker js : JOBSEEKER_DATABASE){
@@ -70,6 +77,11 @@ public class DatabaseJobseeker
                 JOBSEEKER_DATABASE.remove(js);
                 b = true;
             }
+        }
+        if(b==false)
+        {
+            JobSeekerNotFoundException e = new JobSeekerNotFoundException(id);
+            System.out.println(e.getMessage());
         }
         return b;
     }

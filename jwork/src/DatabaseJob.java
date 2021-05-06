@@ -30,7 +30,7 @@ public class DatabaseJob
      * Akan mengembalikan profesi berdasarkan id sehingga returnnya null
      * @param  id
      */
-    public static Job getJobById(int id)
+    public static Job getJobById(int id) throws JobNotFoundException
     {
         Job j1=null;
         for(Job j : JOB_DATABASE){
@@ -40,7 +40,8 @@ public class DatabaseJob
         }
         if(j1==null)
         {
-            return null;
+            JobNotFoundException e = new JobNotFoundException(id);
+            System.out.println(e.getMessage());
         }
         return j1;
     }
@@ -94,7 +95,7 @@ public class DatabaseJob
      * Akan menghapus profesi sehingga parameternya id
      * @param id
      */
-    public static boolean removeJob(int id)
+    public static boolean removeJob(int id) throws JobNotFoundException
     {
         boolean b = false;
         for(Job j : JOB_DATABASE){
@@ -103,7 +104,11 @@ public class DatabaseJob
                 b = true;
             }
         }
-
+        if(b==false)
+        {
+            JobNotFoundException e = new JobNotFoundException(id);
+            System.out.println(e.getMessage());
+        }
         return b;
     }
 }

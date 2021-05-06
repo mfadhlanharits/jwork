@@ -54,6 +54,7 @@ public class EwalletPayment extends Invoice
     {
         this.bonus = bonus;
     }
+
     /**
     * <p>Method memberi nilai totalfee</p>
     * 
@@ -62,13 +63,17 @@ public class EwalletPayment extends Invoice
     {
         for(Job j : getJobs())
         {
-            if (bonus != null && (bonus.getActive() == true) && j.getFee() >= bonus.getMinTotalFee()) {
+            if (bonus != null && (bonus.getActive() == true) && j.getFee() >= bonus.getMinTotalFee())
+            {
                 totalFee = j.getFee() + bonus.getExtraFee();
-            } else {
+            }
+            else
+            {
                 totalFee = j.getFee();
             }
         }
     }
+
     //method menampilkan data
     public String toString()
     {

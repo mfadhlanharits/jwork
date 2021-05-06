@@ -155,7 +155,7 @@ public class Jobseeker
     }
     /**
      * <p>Method ini akan memberi nilai tanggal jobseeker bergabung sehingga parameternya joindate</p>
-     * @param joinDate
+     * @param year, month, dayOfMonth
      */
     public void setJoinDate(int year, int month, int dayOfMonth)
     {

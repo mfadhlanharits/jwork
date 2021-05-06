@@ -27,15 +27,17 @@ public class DatabaseBonus
     * Akan mengembalikan bonus berdasarkan id sehingga returnnya null
     * @return null
     */
-    public static Bonus getBonusById(int id)
+    public static Bonus getBonusById(int id) throws BonusNotFoundException
     {
         Bonus b1=null;
         for(Bonus b : BONUS_DATABASE){
             if(b.getId()==id){
                 b1 = b;
             }
-            else {
-                return null;
+            else
+            {
+                BonusNotFoundException e = new BonusNotFoundException(id);
+                System.out.println(e.getMessage());
             }
         }
         return b1;
@@ -61,18 +63,24 @@ public class DatabaseBonus
      * Akan menambah bonus sehingga parameternya bonus
      * @param bonus
      */
-    public static boolean addBonus(Bonus bonus)
+    public static boolean addBonus(Bonus bonus) throws ReferralCodeAlreadyExistsException
     {
-
+        boolean b = true;
         for (int i=0;i<BONUS_DATABASE.size();i++){
             if(BONUS_DATABASE.get(i).getReferralCode() == bonus.getReferralCode()){
-                return false;
+                b=false;
             }
+        }
+        if(b==false)
+        {
+            ReferralCodeAlreadyExistsException e = new ReferralCodeAlreadyExistsException(bonus);
+            System.out.println(e.getMessage());
+            return b;
         }
 
         BONUS_DATABASE.add(bonus);
         lastId = bonus.getId();
-        return true;
+        return b;
     }
     /**
      * Akan menghapus bonus sehingga parameternya bonus
@@ -98,7 +106,7 @@ public class DatabaseBonus
         boolean bo = false;
         for(Bonus b : BONUS_DATABASE){
             if(b.getId()==id){
-                b.setActive(true);
+                b.setActive(false);
                 bo = true;
             }
         }
@@ -108,7 +116,7 @@ public class DatabaseBonus
      * Akan menghapus bonus sehingga parameternya bonus
      * @param id
      */
-    public static boolean removeBonus(int id)
+    public static boolean removeBonus(int id) throws BonusNotFoundException
     {
         boolean b1 = false;
         for(Bonus b : BONUS_DATABASE){
@@ -117,7 +125,11 @@ public class DatabaseBonus
                 b1 = true;
             }
         }
-
+        if(b1==false)
+        {
+            BonusNotFoundException e = new BonusNotFoundException(id);
+            System.out.println(e.getMessage());
+        }
         return b1;
     }
 
