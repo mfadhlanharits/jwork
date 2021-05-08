@@ -4,19 +4,22 @@
  */
 public class FeeCalculator implements Runnable
 {
+
     private int id;
-    public FeeCalculator(int id){
+    public FeeCalculator(int id)
+    {
         this.id = id;
     }
-    public int getId(){
+    public int getId()
+    {
         return id;
     }
     @Override
     public void run()
     {
         System.out.println("Calculating invoice ID: " + getId());
-        DatabaseInvoice.getInvoiceById(id).setTotalFee();
-        System.out.println("Total fee" + DatabaseInvoice.getInvoiceById(id).getTotalFee());
+        //DatabaseInvoice.getInvoiceById(id).setTotalFee();
+       // System.out.println("Total fee invoice ID " + DatabaseInvoice.getInvoiceById(id).getId() + " = " + DatabaseInvoice.getInvoiceById(id).getTotalFee());
         System.out.println("Finish calculating : " + getId());
     }
 }

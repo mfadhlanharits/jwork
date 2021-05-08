@@ -1,6 +1,6 @@
 /**
  * @author Muhammad Fadhlan Harits
- * @version 22 April 2021
+ * @version 8 Mei 2021
  */
 import java.util.*;
 
@@ -9,7 +9,7 @@ public class JWork {
     public static void main(String[] args) {
         Location location1 = new Location("DKI Jakarta", "Jakarta Selatan", "Kota di Jakarta");
 
-        Recruiter r1 = new Recruiter(28, "Fadhlan", "fadhlan@hotmail.com", "081234", location1);
+       // Recruiter r1 = new Recruiter(28, "Fadhlan", "fadhlan@hotmail.com", "081234", location1);
 
         DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Fadhlan", "fadhlan@hotmail.com", "081234", location1));
 
@@ -46,64 +46,42 @@ public class JWork {
         }
 
          */
-
-
-        /*try {
-            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Devops", DatabaseRecruiter.getRecruiterById(DatabaseRecruiter.getLastId()), 1000000, JobCategory.DevOps));
-            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Devops Engineer", DatabaseRecruiter.getRecruiterById(DatabaseRecruiter.getLastId()), 10000001, JobCategory.DevOps));
-            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Backend Engineer", DatabaseRecruiter.getRecruiterById(DatabaseRecruiter.getLastId()), 100000034, JobCategory.BackEnd));
-
-            Job jj = DatabaseJob.getJobById(4);
-            //System.out.println(jj.toString());
-
-
-        } catch (JobNotFoundException e) {
-            System.out.println(e.getMessage());
-        } catch (RecruiterNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
-
-         */
         try {
-            DatabaseJobseeker.addJobseeker(new Jobseeker(1, "John", "jonathan@mail.com", "lalala", 2021, 4, 23));
-            DatabaseJobseeker.addJobseeker(new Jobseeker(2, "Wick", "jonathan@hotmail.com", "lalala", 2021, 4, 23));
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "John", "jonathan@mail.com", "lalala", 2021, 4, 23));
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Wick", "wick@hotmail.com", "lalala", 2021, 4, 23));
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Dave", "dave@hotmail.com", "lalala", 2021, 4, 23));
 
         }
         catch (EmailAlreadyExistsException e){
             System.out.println(e.getMessage());
         }
 
-        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Devops", r1, 1000000, JobCategory.DevOps));
-        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Devops Engineer", r1, 10000001, JobCategory.DevOps));
-        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Backend Engineer", r1, 100000034, JobCategory.BackEnd));
+        try {
+            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Data Analyst", DatabaseRecruiter.getRecruiterById(1), 1000000, JobCategory.DataAnalyst));
+            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Devops Engineer", DatabaseRecruiter.getRecruiterById(2), 10000001, JobCategory.DevOps));
+            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Backend Engineer", DatabaseRecruiter.getRecruiterById(3), 100000034, JobCategory.BackEnd));
+
+        }
+        catch (RecruiterNotFoundException e){
+            System.out.println(e.getMessage());
+        }
 
         try {
-            BankPayment bp1 = new BankPayment(1, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(1));
-            BankPayment bp2 = new BankPayment(100, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(1));
-            BankPayment bp3 = new BankPayment(101, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(1));
+            BankPayment bp1 = new BankPayment(DatabaseInvoice.getLastId()+1, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(1), 5);
+            bp1.setInvoiceStatus(InvoiceStatus.Finished);
             DatabaseInvoice.addInvoice(bp1);
+            BankPayment bp2 = new BankPayment(DatabaseInvoice.getLastId()+1, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(2), 7);
+            bp2.setInvoiceStatus(InvoiceStatus.Finished);
             DatabaseInvoice.addInvoice(bp2);
-            DatabaseInvoice.addInvoice(bp3);
-
-            ArrayList<Invoice> iv = DatabaseInvoice.getInvoiceDatabase();
-            for(Invoice i : iv){
-                new Thread(new FeeCalculator(i.getId())).start();
-            }
+            DatabaseInvoice.removeInvoice(3);
 
         } catch (JobSeekerNotFoundException e){
             System.out.println(e.getMessage());
-        }
-
-
-
-
-        /*try {
-            DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Fadhlan", "fadhlan@hotmail.com", "081234", location1));
-            Recruiter rr = DatabaseRecruiter.getRecruiterById(3);
-        } catch (RecruiterNotFoundException e) {
+        } catch (OngoingInvoiceAlreadyExistsException e){
+            System.out.println(e.getMessage());
+        } catch (InvoiceNotFoundException e){
             System.out.println(e.getMessage());
         }
 
-         */
     }
 }

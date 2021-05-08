@@ -1,6 +1,6 @@
 /**
  * @author Muhammad Fadhlan Harits
- * @version 24 April 2021
+ * @version 8 Mei 2021
  */
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class DatabaseInvoice {
      * Akan mengembalikan invoice berdasarkan id sehingga returnnya objek i1
      * @param  id
      */
-    public static Invoice getInvoiceById(int id)
+    public static Invoice getInvoiceById(int id) throws InvoiceNotFoundException
     {
         Invoice i1 = null;
         for(Invoice i : INVOICE_DATABASE)
@@ -41,7 +41,8 @@ public class DatabaseInvoice {
         }
         if(i1==null)
         {
-            return null;
+            InvoiceNotFoundException e = new InvoiceNotFoundException(id);
+            System.out.println(e.getMessage());
         }
         return i1;
     }
@@ -69,12 +70,14 @@ public class DatabaseInvoice {
      * Akan menambah invoice sehingga parameternya invoice
      * @param invoice
      */
-    public static boolean addInvoice(Invoice invoice)
+    public static boolean addInvoice(Invoice invoice) throws OngoingInvoiceAlreadyExistsException
     {
        for (int i=0;i<INVOICE_DATABASE.size();i++)
        {
-            if(getInvoiceByJobseeker(INVOICE_DATABASE.get(i).getJobseeker().getID()).get(i).getInvoiceStatus() == InvoiceStatus.OnGoing)
+            if(getInvoiceByJobseeker(INVOICE_DATABASE.get(i).getJobseeker().getID()).get(i).getInvoiceStatus() == InvoiceStatus.OnGoing || invoice.getId() == INVOICE_DATABASE.get(i).getId())
             {
+                OngoingInvoiceAlreadyExistsException e = new OngoingInvoiceAlreadyExistsException(INVOICE_DATABASE.get(i));
+                System.out.println(e.getMessage());
                 return false;
             }
         }
@@ -105,7 +108,7 @@ public class DatabaseInvoice {
      * Akan menghapus invoice sehingga parameternya id
      * @param id
      */
-    public static boolean removeInvoice(int id)
+    public static boolean removeInvoice(int id) throws InvoiceNotFoundException
     {
         boolean b = false;
         for(Invoice i : INVOICE_DATABASE)
@@ -115,6 +118,11 @@ public class DatabaseInvoice {
                 INVOICE_DATABASE.remove(i);
                 b = true;
             }
+        }
+        if(b==false)
+        {
+            InvoiceNotFoundException e = new InvoiceNotFoundException(id);
+            System.out.println(e.getMessage());
         }
         return b;
     }
