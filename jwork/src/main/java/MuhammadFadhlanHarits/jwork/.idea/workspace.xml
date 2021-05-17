@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c8db93d6-fcb5-49ff-aa7e-841c2d7fa4e7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../../.gradle/6.8.3/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.gradle/6.8.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.gradle/6.8.3/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.gradle/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.gradle/configuration-cache/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BankPayment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bonus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BonusNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseBonus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseInvoice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseJobseeker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseRecruiter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EmailAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EwalletPayment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FeeCalculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Invoice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InvoiceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InvoiceStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JWork.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Job.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JobCategory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JobNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JobSeekerNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jobseeker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Location.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OngoingInvoiceAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PaymentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Recruiter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RecruiterNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReferralCodeAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../test/java/MuhammadFadhlanHarits/jwork/JworkApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../.idea/misc.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../.." />
+  </component>
+  <component name="ProjectId" id="1segI7c5C1bBanfZ3seqR6oA4v7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c8db93d6-fcb5-49ff-aa7e-841c2d7fa4e7" name="Default Changelist" comment="" />
+      <created>1621238386507</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621238386507</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
