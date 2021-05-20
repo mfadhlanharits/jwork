@@ -12,18 +12,39 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JWork {
 
     public static void main(String[] args) {
-        SpringApplication.run(JWork.class, args);
 
         Location location1 = new Location("DKI Jakarta", "Jakarta Selatan", "Kota di Jakarta");
+        Location location2 = new Location("DKI Jakarta", "Jakarta Utara", "Kota di Jakarta");
+        Location location3 = new Location("DKI Jakarta", "Jakarta Pusat", "Kota di Jakarta");
 
-       // Recruiter r1 = new Recruiter(28, "Fadhlan", "fadhlan@hotmail.com", "081234", location1);
+        // Recruiter r1 = new Recruiter(28, "Fadhlan", "fadhlan@hotmail.com", "081234", location1);
 
-        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Fadhlan", "fadhlan@hotmail.com", "081234", location1));
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Muhammad", "mfh@hotmail.com", "081234", location1));
 
 
-        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Fadhlan", "fadhlan@hotmail.com", "081234", location1));
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Fadhlan", "fadhlan@hotmail.com", "081234", location2));
 
-        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Fadhlan", "fadhlan@hotmail.com", "081234", location1));
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Harits", "harits@hotmail.com", "081234", location3));
+
+        try {
+            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "DevOps", DatabaseRecruiter.getRecruiterById(1), 1000000, JobCategory.DevOps));
+            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Devops Engineer", DatabaseRecruiter.getRecruiterById(2), 10000001, JobCategory.DevOps));
+            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Backend Engineer", DatabaseRecruiter.getRecruiterById(3), 100000034, JobCategory.BackEnd));
+            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Frontend Engineer", DatabaseRecruiter.getRecruiterById(3), 100000034, JobCategory.FrontEnd));
+
+
+        }
+        catch (RecruiterNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+        SpringApplication.run(JWork.class, args);
+
+
+
+
+
+
+
       /*  try {
             DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Fadhlan", "fadhlan@hotmail.com", "lalala", 2021, 4, 22));
             DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Fadhlan", "fadhlan@hotmail.com", "lalala", 2021, 4, 22));
@@ -53,7 +74,9 @@ public class JWork {
         }
 
          */
-        try {
+
+
+       /* try {
             DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "John", "jonathan@mail.com", "lalala", 2021, 4, 23));
             DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Wick", "wick@hotmail.com", "lalala", 2021, 4, 23));
             DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Dave", "dave@hotmail.com", "lalala", 2021, 4, 23));
@@ -63,15 +86,6 @@ public class JWork {
             System.out.println(e.getMessage());
         }
 
-        try {
-            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Data Analyst", DatabaseRecruiter.getRecruiterById(1), 1000000, JobCategory.DataAnalyst));
-            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Devops Engineer", DatabaseRecruiter.getRecruiterById(2), 10000001, JobCategory.DevOps));
-            DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Backend Engineer", DatabaseRecruiter.getRecruiterById(3), 100000034, JobCategory.BackEnd));
-
-        }
-        catch (RecruiterNotFoundException e){
-            System.out.println(e.getMessage());
-        }
 
         try {
             BankPayment bp1 = new BankPayment(DatabaseInvoice.getLastId()+1, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(1), 5);
@@ -89,6 +103,6 @@ public class JWork {
         } catch (InvoiceNotFoundException e){
             System.out.println(e.getMessage());
         }
-
+*/
     }
 }

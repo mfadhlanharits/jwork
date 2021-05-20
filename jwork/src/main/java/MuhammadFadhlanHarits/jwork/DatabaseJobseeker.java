@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 /**
  * @author Muhammad Fadhlan Harits
- * @version 22 April 2021
+ * @version 20 Mei 2021
  */
 public class DatabaseJobseeker
 {
@@ -87,5 +87,20 @@ public class DatabaseJobseeker
         return b;
     }
 
+    /**
+     * Akan mengembalikan profesi berdasarkan id sehingga returnnya null
+     * @param  email, password
+     */
+    public static Jobseeker jobseekerLogin(String email, String password)
+    {
+        Jobseeker js1 = null;
+        for(Jobseeker js : JOBSEEKER_DATABASE){
+            if(js.getEmail().equals(email) && js.getPassword().equals(password)){
+                js1 = js;
+            }
+        }
+
+        return js1;
+    }
 
 }

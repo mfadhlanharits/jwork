@@ -1,22 +1,19 @@
 /**
  * @author Muhammad Fadhlan Harits
- * @version 17 Mei 2021
+ * @version 20 Mei 2021
  */
 package MuhammadFadhlanHarits.jwork.controller;
 
 import MuhammadFadhlanHarits.jwork.*;
 import org.springframework.web.bind.annotation.*;
+
 @RequestMapping("/jobseeker")
 @RestController
 
 public class JobseekerController
 {
-    @RequestMapping("")
-    public String indexPage(@RequestParam(value="name", defaultValue="world") String name) {
-        return "Hello " + name;
-    }
 
-    @RequestMapping("/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Jobseeker getJobseekerById(@PathVariable int id) {
         Jobseeker jobseeker = null;
         try {
@@ -28,8 +25,8 @@ public class JobseekerController
         return jobseeker;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public Jobseeker addJobseeker(@RequestParam(value="name") String name,
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public Jobseeker registerJobseeker(@RequestParam(value="name") String name,
                                   @RequestParam(value="email") String email,
                                   @RequestParam(value="password") String password)
     {
@@ -40,6 +37,14 @@ public class JobseekerController
             e.getMessage();
             return null;
         }
+        return jobseeker;
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Jobseeker loginJobseeker(@RequestParam(value="email") String email,
+                                       @RequestParam(value="password") String password)
+    {
+        Jobseeker jobseeker = DatabaseJobseeker.jobseekerLogin(email, password);
         return jobseeker;
     }
 }

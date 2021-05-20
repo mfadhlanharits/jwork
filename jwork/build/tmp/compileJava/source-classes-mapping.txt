@@ -2,8 +2,8 @@ MuhammadFadhlanHarits/jwork/DatabaseInvoice.java
  MuhammadFadhlanHarits.jwork.DatabaseInvoice
 MuhammadFadhlanHarits/jwork/InvoiceNotFoundException.java
  MuhammadFadhlanHarits.jwork.InvoiceNotFoundException
-MuhammadFadhlanHarits/jwork/DatabaseJobseeker.java
- MuhammadFadhlanHarits.jwork.DatabaseJobseeker
+MuhammadFadhlanHarits/jwork/FeeCalculator.java
+ MuhammadFadhlanHarits.jwork.FeeCalculator
 MuhammadFadhlanHarits/jwork/Bonus.java
  MuhammadFadhlanHarits.jwork.Bonus
 MuhammadFadhlanHarits/jwork/RecruiterNotFoundException.java
@@ -24,8 +24,8 @@ MuhammadFadhlanHarits/jwork/BonusNotFoundException.java
  MuhammadFadhlanHarits.jwork.BonusNotFoundException
 MuhammadFadhlanHarits/jwork/BankPayment.java
  MuhammadFadhlanHarits.jwork.BankPayment
-MuhammadFadhlanHarits/jwork/JWork.java
- MuhammadFadhlanHarits.jwork.JWork
+MuhammadFadhlanHarits/jwork/OngoingInvoiceAlreadyExistsException.java
+ MuhammadFadhlanHarits.jwork.OngoingInvoiceAlreadyExistsException
 MuhammadFadhlanHarits/jwork/JobNotFoundException.java
  MuhammadFadhlanHarits.jwork.JobNotFoundException
 MuhammadFadhlanHarits/jwork/ReferralCodeAlreadyExistsException.java
@@ -42,13 +42,19 @@ MuhammadFadhlanHarits/jwork/PaymentType.java
  MuhammadFadhlanHarits.jwork.PaymentType
 MuhammadFadhlanHarits/jwork/Job.java
  MuhammadFadhlanHarits.jwork.Job
-MuhammadFadhlanHarits/jwork/DatabaseBonus.java
- MuhammadFadhlanHarits.jwork.DatabaseBonus
+MuhammadFadhlanHarits/jwork/controller/RecruiterController.java
+ MuhammadFadhlanHarits.jwork.controller.RecruiterController
 MuhammadFadhlanHarits/jwork/Invoice.java
  MuhammadFadhlanHarits.jwork.Invoice
-MuhammadFadhlanHarits/jwork/FeeCalculator.java
- MuhammadFadhlanHarits.jwork.FeeCalculator
-MuhammadFadhlanHarits/jwork/OngoingInvoiceAlreadyExistsException.java
- MuhammadFadhlanHarits.jwork.OngoingInvoiceAlreadyExistsException
+MuhammadFadhlanHarits/jwork/JWork.java
+ MuhammadFadhlanHarits.jwork.JWork
+MuhammadFadhlanHarits/jwork/controller/JobController.java
+ MuhammadFadhlanHarits.jwork.controller.JobController
 MuhammadFadhlanHarits/jwork/controller/JobseekerController.java
  MuhammadFadhlanHarits.jwork.controller.JobseekerController
+MuhammadFadhlanHarits/jwork/DatabaseJobseeker.java
+ MuhammadFadhlanHarits.jwork.DatabaseJobseeker
+MuhammadFadhlanHarits/jwork/DatabaseBonus.java
+ MuhammadFadhlanHarits.jwork.DatabaseBonus
+MuhammadFadhlanHarits/jwork/controller/BonusController.java
+ MuhammadFadhlanHarits.jwork.controller.BonusController
