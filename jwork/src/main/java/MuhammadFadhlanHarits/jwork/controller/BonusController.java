@@ -52,7 +52,7 @@ public class BonusController
     {
         Bonus bonus = null;
         try {
-            bonus = new Bonus(DatabaseJobseeker.getLastId()+1, referralCode, extraFee, minTotalFee, active);
+            bonus = new Bonus(DatabaseBonus.getLastId()+1, referralCode, extraFee, minTotalFee, active);
             DatabaseBonus.addBonus(bonus);
         } catch (ReferralCodeAlreadyExistsException e) {
             e.getMessage();
