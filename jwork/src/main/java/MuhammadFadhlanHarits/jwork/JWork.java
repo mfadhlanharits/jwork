@@ -37,6 +37,19 @@ public class JWork {
         catch (RecruiterNotFoundException e){
             System.out.println(e.getMessage());
         }
+
+        try {
+            DatabaseInvoice.addInvoice(new BankPayment(DatabaseInvoice.getLastId()+1, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(1)));
+
+        }
+        catch (JobSeekerNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+        catch (OngoingInvoiceAlreadyExistsException e){
+            System.out.println(e.getMessage());
+        }
+
+
         SpringApplication.run(JWork.class, args);
 
 

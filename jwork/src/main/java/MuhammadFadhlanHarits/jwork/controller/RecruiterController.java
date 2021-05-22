@@ -26,7 +26,7 @@ public class RecruiterController
     /**
      * akan mengembalikan recruiter berdasarkan id
      * @param id
-     * @return null
+     * @return r1
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Recruiter getRecruiterById(@PathVariable int id) throws RecruiterNotFoundException

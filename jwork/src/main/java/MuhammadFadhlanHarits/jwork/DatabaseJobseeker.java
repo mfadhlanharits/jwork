@@ -88,7 +88,7 @@ public class DatabaseJobseeker
     }
 
     /**
-     * Akan mengembalikan profesi berdasarkan id sehingga returnnya null
+     * Akan melakukan login jobseeker sehingga parameternya email dan password
      * @param  email, password
      */
     public static Jobseeker jobseekerLogin(String email, String password)

@@ -47,6 +47,7 @@ public class DatabaseInvoice {
         }
         return i1;
     }
+
     /**
      * Akan mengembalikan invoice berdasarkan id jobseeker sehingga returnnya arraylist
      * @param jobseekerId
@@ -67,6 +68,7 @@ public class DatabaseInvoice {
         }
         return gbjs;
     }
+
     /**
      * Akan menambah invoice sehingga parameternya invoice
      * @param invoice

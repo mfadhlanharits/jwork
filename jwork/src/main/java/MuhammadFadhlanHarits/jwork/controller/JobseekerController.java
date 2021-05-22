@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.*;
 
 public class JobseekerController
 {
-
+    /**
+     * akan mengembalikan jobseeker berdasarkan id
+     * @param id
+     * @return jobseeker
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Jobseeker getJobseekerById(@PathVariable int id) {
         Jobseeker jobseeker = null;
@@ -24,7 +28,10 @@ public class JobseekerController
         }
         return jobseeker;
     }
-
+    /**
+     * Akan mendaftarkan pelamar sehingga returnnya jobseeker
+     * @return jobseeker
+     */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public Jobseeker registerJobseeker(@RequestParam(value="name") String name,
                                   @RequestParam(value="email") String email,
@@ -40,6 +47,10 @@ public class JobseekerController
         return jobseeker;
     }
 
+    /**
+     * Akan melakukan login sehingga returnnya jobseeker
+     * @return jobseeker
+     */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Jobseeker loginJobseeker(@RequestParam(value="email") String email,
                                        @RequestParam(value="password") String password)
