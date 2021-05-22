@@ -39,26 +39,6 @@ public class JWork {
         }
 
         try {
-            DatabaseInvoice.addInvoice(new BankPayment(DatabaseInvoice.getLastId()+1, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(1)));
-
-        }
-        catch (JobSeekerNotFoundException e){
-            System.out.println(e.getMessage());
-        }
-        catch (OngoingInvoiceAlreadyExistsException e){
-            System.out.println(e.getMessage());
-        }
-
-
-        SpringApplication.run(JWork.class, args);
-
-
-
-
-
-
-
-      /*  try {
             DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Fadhlan", "fadhlan@hotmail.com", "lalala", 2021, 4, 22));
             DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Fadhlan", "fadhlan@hotmail.com", "lalala", 2021, 4, 22));
             DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "John", "John@hotmail.com", "lalala", 2021, 4, 23));
@@ -72,7 +52,11 @@ public class JWork {
             System.out.println(e.getMessage());
         } catch (JobSeekerNotFoundException e){
             System.out.println(e.getMessage());
-        } */
+        }
+        SpringApplication.run(JWork.class, args);
+
+
+        
 
         /*try {
             DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "a125", 200, 100, false));

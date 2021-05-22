@@ -123,10 +123,12 @@ public class InvoiceController
     {
         BankPayment bp1 = null;
         try {
-            bp1 = new BankPayment(DatabaseInvoice.getLastId()+1, DatabaseJob.getJobDatabase().get(jobIdList.get(0)), jobseeker, adminFee);
+            bp1 = new BankPayment(DatabaseInvoice.getLastId()+1, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(jobseekerId), adminFee);
             bp1.setTotalFee();
             DatabaseInvoice.addInvoice(bp1);
         } catch (OngoingInvoiceAlreadyExistsException e){
+            System.out.println(e.getMessage());
+        } catch (JobSeekerNotFoundException e){
             System.out.println(e.getMessage());
         }
 
@@ -139,15 +141,17 @@ public class InvoiceController
      */
     @RequestMapping(value = "/createEWalletPayment", method = RequestMethod.POST)
     public Invoice addEWalletPayment(@RequestParam(value="jobIdList") ArrayList<Integer> jobIdList,
-                                  @RequestParam(value="jobseeker") Jobseeker jobseeker,
-                                  @RequestParam(value="adminFee") int adminFee)
+                                  @RequestParam(value="jobseekerId") int jobseekerId,
+                                  @RequestParam(value="referralCode") String referralCode)
     {
-        EwalletPayment bp1 = null;
+        EwalletPayment ep1 = null;
         try {
-            ep1 = new BankPayment(DatabaseInvoice.getLastId()+1, job, jobseeker, adminFee);
-            bp1.setTotalFee();
-            DatabaseInvoice.addInvoice(bp1);
+            ep1 = new EwalletPayment(DatabaseInvoice.getLastId()+1, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(jobseekerId), DatabaseBonus.getBonusByReferralCode(referralCode));
+            ep1.setTotalFee();
+            DatabaseInvoice.addInvoice(ep1);
         } catch (OngoingInvoiceAlreadyExistsException e){
+            System.out.println(e.getMessage());
+        } catch (JobSeekerNotFoundException e){
             System.out.println(e.getMessage());
         }
 
