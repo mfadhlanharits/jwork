@@ -7,6 +7,8 @@ package MuhammadFadhlanHarits.jwork.controller;
 import MuhammadFadhlanHarits.jwork.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
+
 @RequestMapping("/jobseeker")
 @RestController
 
@@ -35,11 +37,10 @@ public class JobseekerController
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public Jobseeker registerJobseeker(@RequestParam(value="name") String name,
                                   @RequestParam(value="email") String email,
-                                  @RequestParam(value="password") String password)
-    {
-        Jobseeker jobseeker = new Jobseeker(DatabaseJobseeker.getLastId()+1, name, email, password);
+                                  @RequestParam(value="password") String password) throws SQLException {
+        Jobseeker jobseeker = new Jobseeker(DatabaseJobseekerPostgre.getLastJobseekerId()+1, name, email, password);
         try {
-            DatabaseJobseeker.addJobseeker(jobseeker);
+            DatabaseJobseekerPostgre.insertJobseeker(jobseeker);
         } catch (EmailAlreadyExistsException e) {
             e.getMessage();
             return null;
@@ -53,9 +54,8 @@ public class JobseekerController
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Jobseeker loginJobseeker(@RequestParam(value="email") String email,
-                                       @RequestParam(value="password") String password)
-    {
-        Jobseeker jobseeker = DatabaseJobseeker.jobseekerLogin(email, password);
+                                       @RequestParam(value="password") String password) throws SQLException {
+        Jobseeker jobseeker = DatabaseJobseekerPostgre.jobseekerLogin(email, password);
         return jobseeker;
     }
 }

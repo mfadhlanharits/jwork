@@ -23,6 +23,9 @@ public class Bonus
         this.minTotalFee = minTotalFee;
         this.active = active;
     }
+
+
+
     /**
     * <p>Method mengambil id bonus sehingga memiliki return id</p>
     * @return id

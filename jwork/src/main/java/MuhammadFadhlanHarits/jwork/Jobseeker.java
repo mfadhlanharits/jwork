@@ -51,7 +51,9 @@ public class Jobseeker
         this.name = name;
         setEmail(email);
         setPassword(password);
-
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(cal.getTime());
+        this.joinDate = cal;
     }
     /**
      * <p>Method ini akan mengambil ID jobseeker sehingga returnnya id</p>

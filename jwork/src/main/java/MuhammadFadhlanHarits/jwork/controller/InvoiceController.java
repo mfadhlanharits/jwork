@@ -35,6 +35,7 @@ public class InvoiceController
         Invoice i1 = null;
         for(Invoice i : DatabaseInvoice.getInvoiceDatabase())
         {
+
             if(i.getId() == id)
             {
                 i1 = i;
@@ -113,22 +114,29 @@ public class InvoiceController
     }
 
     /**
-     * Akan menambah invoice sehingga parameternya invoice
-     * @param
+     * Akan menambah invoice sehingga parameter dan return invoice
+     * @return bp1
      */
     @RequestMapping(value = "/createBankPayment", method = RequestMethod.POST)
     public Invoice addBankPayment(@RequestParam(value="jobIdList") ArrayList<Integer> jobIdList,
-                                  @RequestParam(value="jobseeker") int jobseekerId,
+                                  @RequestParam(value="jobseekerId") int jobseekerId,
                                   @RequestParam(value="adminFee") int adminFee)
     {
         BankPayment bp1 = null;
         try {
-            bp1 = new BankPayment(DatabaseInvoice.getLastId()+1, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(jobseekerId), adminFee);
+            ArrayList<Job> jobs = new ArrayList<>();
+            for(int id : jobIdList){
+                Job job = DatabaseJob.getJobById(id);
+                jobs.add(job);
+            }
+            bp1 = new BankPayment(DatabaseInvoice.getLastId()+1, jobs, DatabaseJobseekerPostgre.getJobseekerFromId(jobseekerId), adminFee);
             bp1.setTotalFee();
             DatabaseInvoice.addInvoice(bp1);
         } catch (OngoingInvoiceAlreadyExistsException e){
             System.out.println(e.getMessage());
         } catch (JobSeekerNotFoundException e){
+            System.out.println(e.getMessage());
+        } catch (JobNotFoundException e){
             System.out.println(e.getMessage());
         }
 
@@ -136,22 +144,60 @@ public class InvoiceController
     }
 
     /**
-     * Akan menambah invoice sehingga parameternya invoice
-     * @param
+     * Akan menambah invoice sehingga parameter dan return invoice
+     * @return ep1
      */
-    @RequestMapping(value = "/createEWalletPayment", method = RequestMethod.POST)
+    @RequestMapping(value = "/createEWalletPaymentCode", method = RequestMethod.POST)
     public Invoice addEWalletPayment(@RequestParam(value="jobIdList") ArrayList<Integer> jobIdList,
                                   @RequestParam(value="jobseekerId") int jobseekerId,
                                   @RequestParam(value="referralCode") String referralCode)
     {
         EwalletPayment ep1 = null;
+
         try {
-            ep1 = new EwalletPayment(DatabaseInvoice.getLastId()+1, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(jobseekerId), DatabaseBonus.getBonusByReferralCode(referralCode));
+            ArrayList<Job> jobs = new ArrayList<>();
+            for(int id : jobIdList){
+                Job job = DatabaseJob.getJobById(id);
+                jobs.add(job);
+            }
+            ep1 = new EwalletPayment(DatabaseInvoice.getLastId()+1, jobs, DatabaseJobseekerPostgre.getJobseekerFromId(jobseekerId), DatabaseBonusPostgre.getBonusByReferralCode(referralCode));
             ep1.setTotalFee();
             DatabaseInvoice.addInvoice(ep1);
         } catch (OngoingInvoiceAlreadyExistsException e){
             System.out.println(e.getMessage());
         } catch (JobSeekerNotFoundException e){
+            System.out.println(e.getMessage());
+        } catch (JobNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+
+        return ep1;
+    }
+
+    /**
+     * Akan menambah invoice sehingga parameter dan return invoice
+     * @return ep1
+     */
+    @RequestMapping(value = "/createEWalletPayment", method = RequestMethod.POST)
+    public Invoice addEWalletPayment(@RequestParam(value="jobIdList") ArrayList<Integer> jobIdList,
+                                     @RequestParam(value="jobseekerId") int jobseekerId)
+    {
+        EwalletPayment ep1 = null;
+
+        try {
+            ArrayList<Job> jobs = new ArrayList<>();
+            for(int id : jobIdList){
+                Job job = DatabaseJob.getJobById(id);
+                jobs.add(job);
+            }
+            ep1 = new EwalletPayment(DatabaseInvoice.getLastId()+1, jobs, DatabaseJobseekerPostgre.getJobseekerFromId(jobseekerId));
+            ep1.setTotalFee();
+            DatabaseInvoice.addInvoice(ep1);
+        } catch (OngoingInvoiceAlreadyExistsException e){
+            System.out.println(e.getMessage());
+        } catch (JobSeekerNotFoundException e){
+            System.out.println(e.getMessage());
+        } catch (JobNotFoundException e){
             System.out.println(e.getMessage());
         }
 

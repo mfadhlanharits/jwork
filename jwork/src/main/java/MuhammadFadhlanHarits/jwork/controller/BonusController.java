@@ -31,13 +31,7 @@ public class BonusController
     @RequestMapping(value = "/{referralCode}", method = RequestMethod.GET)
     public Bonus getBonusByReferralCode(@PathVariable String referralCode)
     {
-        Bonus b1=null;
-        for(Bonus b : DatabaseBonus.getBonusDatabase()){
-            if(b.getReferralCode().equals(referralCode))
-            {
-                b1 = b;
-            }
-        }
+        Bonus b1 = DatabaseBonusPostgre.getBonusByReferralCode(referralCode);
         return b1;
     }
     /**
@@ -53,7 +47,7 @@ public class BonusController
         Bonus bonus = null;
         try {
             bonus = new Bonus(DatabaseBonus.getLastId()+1, referralCode, extraFee, minTotalFee, active);
-            DatabaseBonus.addBonus(bonus);
+            DatabaseBonusPostgre.insertBonus(bonus);
         } catch (ReferralCodeAlreadyExistsException e) {
             e.getMessage();
         }

@@ -44,7 +44,7 @@ public class DatabaseBonus
         return b1;
     }
     /**
-     * Akan mengembalikan bonus berdasarkan referral code sehingga returnnya null
+     * Akan mengembalikan bonus berdasarkan referral code sehingga returnnya bonus
      * @return null
      */
     public static Bonus getBonusByReferralCode(String referralCode)
@@ -53,9 +53,6 @@ public class DatabaseBonus
         for(Bonus b : BONUS_DATABASE){
             if(b.getReferralCode().equals(referralCode)){
                 b1 = b;
-            }
-            else {
-                return null;
             }
         }
         return b1;
