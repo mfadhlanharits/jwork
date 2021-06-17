@@ -64,10 +64,7 @@ public class DatabaseJobseekerPostgre extends DatabaseConnectionPostgre
             st.setString(4, jobseeker.getPassword());
             st.setString(5, sdf.format(date.getTime()));
             ResultSet rs = st.executeQuery();
-            /*int id = 1;
-            while(rs.next()){
-                id = rs.getInt(1);
-            }*/
+
             js = new Jobseeker(DatabaseJobseekerPostgre.getLastJobseekerId()+1, jobseeker.getName(), jobseeker.getEmail(), jobseeker.getPassword());
             st.close();
             c.close();

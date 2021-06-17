@@ -68,8 +68,6 @@ public class DatabaseBonusPostgre extends DatabaseConnectionPostgre
             e.printStackTrace();
         }
 
-
-
         return b1;
     }
 

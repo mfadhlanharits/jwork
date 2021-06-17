@@ -9,7 +9,12 @@ import java.sql.Statement;
 
 public class DatabaseConnectionPostgre
 {
+    /**
+     * Akan membuat koneksi dengan database sehingga returnnya connection
+     * @return c
+     */
     public static Connection connection(){
+        //Variabel yang digunakan serta username dan password untuk mengakses database
         Connection c = null;
         Statement stat = null;
         String db_name = "jwork";
