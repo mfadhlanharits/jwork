@@ -21,6 +21,7 @@ public class DatabaseConnectionPostgre
         String db_user = "postgres";
         String db_password = "harits2804";
 
+        //Akan membuat koneksi dengan kelas driver postgresql
         try{
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/"+db_name,db_user,db_password);
